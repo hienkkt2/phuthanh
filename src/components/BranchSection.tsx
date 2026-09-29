@@ -103,7 +103,7 @@ export const BranchSection: React.FC = () => {
                 title="Bấm để mở bản đồ Google Maps"
               >
                 <img
-                  src="/src/assets/images/phu_thanh_real_gate_1790649534752.jpg"
+                  src="/images/phu_thanh_real_gate_1790649534752.jpg"
                   alt="Cổng vào và biển hiệu cơ sở Phú Thành tại số 2 kiệt 186 Nguyễn Sinh Cung, Vỹ Dạ, Huế"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"

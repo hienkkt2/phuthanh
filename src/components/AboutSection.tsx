@@ -9,19 +9,19 @@ export const AboutSection: React.FC = () => {
     {
       title: 'Phòng Trị Liệu Bấm Huyệt Máy Lạnh',
       subtitle: 'Không gian ốp gỗ ấm cúng, 3 giường nệm êm ái, khăn ga thơm sạch thay mới 100%',
-      image: '/src/assets/images/phu_thanh_real_room_1790649556393.jpg',
+      image: '/images/phu_thanh_real_room_1790649556393.jpg',
       badge: 'Phòng Trị Liệu 3 Giường',
     },
     {
       title: 'Khu Vực Ngâm Chân Thảo Mộc Thùng Gỗ',
       subtitle: 'Nước lá gừng quế ấm nóng khai thông huyệt đạo bàn chân, kết hợp thưởng trà gừng',
-      image: '/src/assets/images/phu_thanh_real_footsoak_1790649584369.jpg',
+      image: '/images/phu_thanh_real_footsoak_1790649584369.jpg',
       badge: 'Ngâm Chân Thảo Mộc',
     },
     {
       title: 'Cổng Vào & Biển Hiệu Số 2 Kiệt 186 Nguyễn Sinh Cung',
       subtitle: 'Cổng vào thông thoáng, biển hiệu sáng rõ, ô tô vào tận cổng cơ sở Vỹ Dạ',
-      image: '/src/assets/images/phu_thanh_real_gate_1790649534752.jpg',
+      image: '/images/phu_thanh_real_gate_1790649534752.jpg',
       badge: 'Cổng Cơ Sở Vỹ Dạ',
     },
   ];

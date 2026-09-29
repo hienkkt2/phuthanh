@@ -129,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-[#D3BA9E] bg-[#E0CDAF] aspect-[16/11]">
               <img
-                src="/src/assets/images/phu_thanh_hero_1790648702096.jpg"
+                src="/images/phu_thanh_hero_1790648702096.jpg"
                 alt="Kỹ thuật viên khiếm thị Phú Thành thực hiện bấm huyệt trị liệu tại cơ sở Vỹ Dạ, Huế"
                 className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                 referrerPolicy="no-referrer"

@@ -24,7 +24,7 @@ export const SERVICES_DATA: Service[] = [
     price: 140000,
     price60: 140000,
     price90: 210000,
-    image: '/src/assets/images/phu_thanh_hero_1790648702096.jpg',
+    image: '/images/phu_thanh_hero_1790648702096.jpg',
     shortDesc: 'Xoa bóp day ấn huyệt cổ truyền, đả thông kinh lạc, giải phóng điểm co cứng cơ cổ vai gáy và toàn thân.',
     description: 'Liệu trình xoa bóp day ấn huyệt Y học cổ truyền chuẩn xác của kỹ thuật viên khiếm thị. Bàn tay giàu cảm giác ấn sâu vào các huyệt then chốt (Phong Trì, Kiên Tỉnh, Đại Chùy, Thận Du), giải phóng chèn ép rễ thần kinh, dứt hẳn cơn đau mỏi cơ cổ vai gáy, lưng eo và phục hồi sự dẻo dai.',
     steps: [
@@ -52,7 +52,7 @@ export const SERVICES_DATA: Service[] = [
     price: 170000,
     price60: 170000,
     price90: 240000,
-    image: '/src/assets/images/spa_interior_ambiance_1790586975263.jpg',
+    image: '/images/spa_interior_ambiance_1790586975263.jpg',
     shortDesc: 'Kết hợp xoa bóp bấm huyệt và giác hơi trục xuất hàn ẩm, phong hàn ứ trệ, giải cảm nhẹ người.',
     description: 'Sự kết hợp hoàn hảo giữa kỹ thuật xoa bóp bấm huyệt trị liệu và phương pháp giác hơi truyền thống. Lực hút giác hơi nhẹ nhàng dọc các đường kinh bàng quang giúp trục xuất phong hàn, giải cảm, hút sạch độc tố hàn ẩm tích tụ lâu ngày dưới da, hết hẳn ê ẩm sống lưng.',
     steps: [
@@ -79,7 +79,7 @@ export const SERVICES_DATA: Service[] = [
     price: 170000,
     price60: 170000,
     price90: 240000,
-    image: '/src/assets/images/spa_service_massage_1790586932588.jpg',
+    image: '/images/spa_service_massage_1790586932588.jpg',
     shortDesc: 'Ấn huyệt đầm tay kết hợp hơi ấm đá bazan núi lửa truyền nhiệt sâu xua tan căng cơ mệt mỏi.',
     description: 'Sự kết hợp giữa lực tay đầm chắc, tinh tế của người khiếm thị cùng sức nóng tự nhiên từ đá bazan ủ ấm. Năng lượng nhiệt len lỏi sâu vào các mô cơ dày ở lưng, eo, mông và bắp chân, giúp giãn cơ vân, trục hàn khí và phục hồi toàn bộ hệ cơ xương khớp.',
     steps: [
@@ -106,7 +106,7 @@ export const SERVICES_DATA: Service[] = [
     price: 200000,
     price60: 200000,
     price90: 270000,
-    image: '/src/assets/images/phu_thanh_hero_1790648702096.jpg',
+    image: '/images/phu_thanh_hero_1790648702096.jpg',
     shortDesc: 'Gói chăm sóc toàn diện nhất: Đủ bộ Bấm Huyệt + Giác Hơi + Đá Nóng phục hồi tối đa thể lực.',
     description: 'Liệu trình cao cấp nhất được yêu thích tại Phú Thành. Hội tụ đủ 3 phương pháp trị liệu tinh hoa Đông y: Xoa bóp bấm huyệt khai thông kinh lạc, Giác hơi giải cảm trục độc hàn ẩm, và Đá nóng bazan truyền nhiệt ấm sâu. Xua tan triệt để mọi mệt mỏi đau nhức toàn thân.',
     steps: [
@@ -132,7 +132,7 @@ export const SERVICES_DATA: Service[] = [
     price: 170000,
     price60: 170000,
     price90: 240000,
-    image: '/src/assets/images/phu_thanh_real_footsoak_1790649584369.jpg',
+    image: '/images/phu_thanh_real_footsoak_1790649584369.jpg',
     shortDesc: 'Thùng gỗ ngâm nước lá thảo mộc đun ấm, bấm huyệt Dũng Tuyền kích hoạt kinh mạch, bổ thận ấm chân.',
     description: 'Bàn chân được xem như "trái tim thứ hai" của cơ thể, nơi hội tụ hơn 60 huyệt đạo liên hệ mật thiết với các cơ quan nội tạng. Nước lá thơm ngâm chân kết hợp bấm huyệt chính xác giúp bạn ngủ sâu giấc, chân ấm áp và giảm nhức mỏi xương khớp sau ngày dài đi bộ tham quan cố đô.',
     steps: [
@@ -160,7 +160,7 @@ export const SERVICES_DATA: Service[] = [
     price60: 40000,
     price90: 40000,
     isAddon: true,
-    image: '/src/assets/images/spa_interior_ambiance_1790586975263.jpg',
+    image: '/images/spa_interior_ambiance_1790586975263.jpg',
     shortDesc: 'Dịch vụ thêm: Xông ấm ngải cứu tươi lên các huyệt vị lạnh, trục hàn khí, giảm đau nhức xương khớp.',
     description: 'Phương pháp xông hơ ngải cứu thuần túy Đông y. Hơi ấm thuần dương của ngải cứu thấm sâu vào kinh lạc, tán hàn trừ thấp, ôn thông khí huyết, đặc biệt hiệu quả cho người bị đau nhức xương khớp, lạnh bụng, đau bụng kinh hoặc cơ thể bị nhiễm lạnh.',
     steps: [
@@ -184,7 +184,7 @@ export const SERVICES_DATA: Service[] = [
     price60: 40000,
     price90: 40000,
     isAddon: true,
-    image: '/src/assets/images/spa_service_headspa_1790586950795.jpg',
+    image: '/images/spa_service_headspa_1790586950795.jpg',
     shortDesc: 'Dịch vụ thêm: Giác hơi truyền thống hút độc tố, đả thông ứ trệ, giải cảm gió nhanh chóng.',
     description: 'Giác hơi khô truyền thống được thực hiện khéo léo bởi kỹ thuật viên khiếm thị. Áp suất âm vừa vặn giúp hút sạch các huyết ứ và khí trệ độc hại dưới da, kích thích lưu thông máu và giải tỏa cơn nhức mỏi ê ẩm lưng.',
     steps: [
@@ -329,7 +329,7 @@ export const ARTICLES_DATA: Article[] = [
     date: '20 Tháng 9, 2026',
     readTime: '4 phút đọc',
     excerpt: 'Khi thị giác không còn là kênh tiếp nhận chính, xúc giác của người khiếm thị phát triển vượt bậc. Họ cảm nhận được từng bó cơ co rút và điểm huyệt đạo sâu dưới da bằng trực giác nhạy bén.',
-    image: '/src/assets/images/phu_thanh_hero_1790648702096.jpg',
+    image: '/images/phu_thanh_hero_1790648702096.jpg',
     content: [
       'Nhiều nghiên cứu y học chỉ ra rằng ở người khiếm thị, vùng não xử lý xúc giác được tăng cường mạnh mẽ. Đôi bàn tay của họ giống như một máy quét sinh học cực kỳ tinh vi.',
       'Khi lướt nhẹ ngón tay trên sống lưng, kỹ thuật viên có thể phát hiện ngay vị trí bị bó cơ, nơi tắc nghẽn kinh lạc hay đốt sống bị chệch nhẹ mà mắt thường khó thấy.',
@@ -343,7 +343,7 @@ export const ARTICLES_DATA: Article[] = [
     date: '12 Tháng 9, 2026',
     readTime: '5 phút đọc',
     excerpt: 'Bấm huyệt Dũng Tuyền kết hợp ngâm chân thảo dược mỗi tối giúp hạ hỏa, trị mất ngủ kinh niên và tăng cường chức năng thận khí.',
-    image: '/src/assets/images/phu_thanh_foot_herbal_1790588475271.jpg',
+    image: '/images/phu_thanh_foot_herbal_1790588475271.jpg',
     content: [
       'Huyệt Dũng Tuyền nằm ở điểm lõm giữa 1/3 trước lòng bàn chân, là huyệt đầu tiên của kinh Thận. Chữ "Dũng" là vọt lên, "Tuyền" là suối nước, ngụ ý sinh khí từ đây tuôn trào đi khắp cơ thể.',
       'Ngâm chân bằng nước lá thuốc ấm kết hợp day ấn huyệt Dũng Tuyền 10 - 15 phút giúp kéo khí nóng từ trên đầu hạ xuống dưới (dẫn hỏa quy nguyên), giúp làm ấm cơ thể và đưa não bộ vào giấc ngủ êm đềm.',
@@ -357,7 +357,7 @@ export const ARTICLES_DATA: Article[] = [
     date: '02 Tháng 9, 2026',
     readTime: '5 phút đọc',
     excerpt: 'Dấu hiệu mỏi cổ lan ra bả vai, tê tay và cách xoa bóp bấm huyệt giúp đả thông khí huyết không cần dùng thuốc giảm đau.',
-    image: '/src/assets/images/spa_service_massage_1790586932588.jpg',
+    image: '/images/spa_service_massage_1790586932588.jpg',
     content: [
       'Đau mỏi cổ gáy lâu ngày nếu không được giải tỏa sẽ dẫn đến vôi hóa đốt sống cổ C4-C5-C6 và chèn ép động mạch đốt sống thân nền, gây thiểu năng tuần hoàn não.',
       'Xoa bóp bấm huyệt các huyệt Phong Trì, Phong Phủ, Kiên Tỉnh giúp làm mềm cơ thang, giãn cơ ức đòn chũm và tăng tưới máu cho não bộ.',
