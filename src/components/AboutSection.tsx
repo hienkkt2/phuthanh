@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 import { HeartHandshake, ShieldCheck, Sparkles, MapPin, Coffee, CheckCircle2 } from 'lucide-react';
 import { SPA_INFO } from '../data/spaData';
+import { useLanguage } from '../context/LanguageContext';
 
 export const AboutSection: React.FC = () => {
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+  const { language, t } = useLanguage();
 
   const realPhotos = [
     {
-      title: 'Phòng Trị Liệu Bấm Huyệt Máy Lạnh',
-      subtitle: 'Không gian ốp gỗ ấm cúng, 3 giường nệm êm ái, khăn ga thơm sạch thay mới 100%',
+      title: language === 'vi' ? 'Phòng Trị Liệu Bấm Huyệt Máy Lạnh' : 'Air-conditioned 3-Bed Treatment Room',
+      subtitle: language === 'vi' ? 'Không gian ốp gỗ ấm cúng, 3 giường nệm êm ái, khăn ga thơm sạch thay mới 100%' : 'Cozy wooden ambiance, 3 comfortable orthopedic beds, 100% fresh lemongrass linens',
       image: '/images/phu_thanh_real_room_1790649556393.jpg',
-      badge: 'Phòng Trị Liệu 3 Giường',
-      badgeMobile: 'Phòng 3 Giường',
+      badge: language === 'vi' ? 'Phòng Trị Liệu 3 Giường' : '3-Bed Treatment Room',
+      badgeMobile: language === 'vi' ? 'Phòng 3 Giường' : '3-Bed Room',
     },
     {
-      title: 'Khu Vực Ngâm Chân Thảo Mộc Thùng Gỗ',
-      subtitle: 'Nước lá gừng quế ấm nóng khai thông huyệt đạo bàn chân, kết hợp thưởng trà gừng',
+      title: language === 'vi' ? 'Khu Vực Ngâm Chân Thảo Mộc Thùng Gỗ' : 'Traditional Cedar Foot Soak Lounge',
+      subtitle: language === 'vi' ? 'Nước lá gừng quế ấm nóng khai thông huyệt đạo bàn chân, kết hợp thưởng trà gừng' : 'Warm boiled ginger-cinnamon herbal infusion to stimulate foot reflexology points',
       image: '/images/phu_thanh_real_footsoak_1790649584369.jpg',
-      badge: 'Ngâm Chân Thảo Mộc',
-      badgeMobile: 'Ngâm Chân',
+      badge: language === 'vi' ? 'Ngâm Chân Thảo Mộc' : 'Herbal Foot Soak',
+      badgeMobile: language === 'vi' ? 'Ngâm Chân' : 'Foot Soak',
     },
     {
-      title: 'Cổng Vào & Biển Hiệu Số 2 Kiệt 186 Nguyễn Sinh Cung',
-      subtitle: 'Cổng vào thông thoáng, biển hiệu sáng rõ, ô tô vào tận cổng cơ sở Vỹ Dạ',
+      title: language === 'vi' ? 'Cổng Vào & Biển Hiệu Số 2 Kiệt 186 Nguyễn Sinh Cung' : 'Entrance Gate at No. 2, Alley 186 Nguyen Sinh Cung',
+      subtitle: language === 'vi' ? 'Cổng vào thông thoáng, biển hiệu sáng rõ, ô tô vào tận cổng cơ sở Vỹ Dạ' : 'Spacious quiet alley, bright clear signboard, cars drive straight to our gate',
       image: '/images/phu_thanh_real_gate_1790649534752.jpg',
-      badge: 'Cổng Cơ Sở Vỹ Dạ',
-      badgeMobile: 'Cổng Tiệm',
+      badge: language === 'vi' ? 'Cổng Cơ Sở Vỹ Dạ' : 'Spa Entrance Gate',
+      badgeMobile: language === 'vi' ? 'Cổng Tiệm' : 'Spa Gate',
     },
   ];
 
@@ -33,20 +35,20 @@ export const AboutSection: React.FC = () => {
 
   const pillars = [
     {
-      title: '01. Xúc Giác Nhạy Bén Bấm Chuẩn Từng Huyệt Vị',
-      desc: 'Khi thị giác không còn phân tán, đôi bàn tay của kỹ thuật viên khiếm thị phát triển trực giác xúc giác tuyệt vời. Lần theo từng dải cơ, phát hiện chính xác nơi co cứng bó cơ, kinh lạc bị nghẽn tắc.',
+      title: t('about_val1_title'),
+      desc: t('about_val1_desc'),
     },
     {
-      title: '02. Đào Tạo Bài Bản Từ Hội Người Mù & Viện Y Học Cổ Truyền',
-      desc: '100% người khiếm thị làm việc tại Phú Thành đều trải qua hàng ngàn giờ học giải phẫu cơ xương và xoa bóp bấm huyệt trị liệu, có chứng chỉ hành nghề chính quy.',
+      title: t('about_val2_title'),
+      desc: t('about_val2_desc'),
     },
     {
-      title: '03. Không Gian Sạch Sẽ, Lịch Sự & Riêng Tư',
-      desc: 'Phòng máy lạnh kín đáo, có phòng riêng nam/nữ, phòng cho gia đình hoặc cặp đôi. Ga giường và khăn trải giặt sấy thơm mùi sả chanh, thay mới 100% sau mỗi lượt khách.',
+      title: t('about_val3_title'),
+      desc: t('about_val3_desc'),
     },
     {
-      title: '04. Giá Bình Dân — Minh Bạch Niêm Yết Rõ Ràng',
-      desc: 'Phục vụ bằng cái tâm chân chất của người Huế. Bảng giá niêm yết công khai từ 140.000đ (dịch vụ thêm từ 40.000đ), miễn phí nước ngâm chân thảo dược ấm và tách trà gừng thơm sau liệu trình.',
+      title: t('about_val4_title'),
+      desc: t('about_val4_desc'),
     },
   ];
 
@@ -57,13 +59,13 @@ export const AboutSection: React.FC = () => {
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#8C5E2D] uppercase mb-2 bg-[#EADAC5] px-3 py-1 rounded-full border border-[#D5C0A4]">
             <HeartHandshake className="w-3.5 h-3.5 text-[#8C5E2D]" />
-            <span>Nghị Lực & Chân Thành Xứ Huế</span>
+            <span>{t('about_tag')}</span>
           </div>
           <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-normal text-[#381F0B] text-balance">
-            Nâng Cao Thể Lực, <span className="italic text-[#8C5E2D]">Chắp Cánh Sinh Kế</span> Từ Đôi Bàn Tay
+            {t('about_title_1')} <span className="italic text-[#8C5E2D]">{t('about_title_2')}</span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-[#5D3F24] leading-relaxed">
-            Cơ sở <strong>Phú Thành - Massage Khiếm Thị</strong> tại số 2 kiệt 186 Nguyễn Sinh Cung, Vỹ Dạ, Huế là mái nhà chung của những người khiếm thị yêu nghề. Chúng tôi mang đến dịch vụ xoa bóp bấm huyệt đàng hoàng, tử tế, trị liệu tận gốc cơn đau mỏi cho người dân địa phương và du khách.
+            {t('about_desc')}
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import { Clock, Phone, Info, Sparkles } from 'lucide-react';
 import { SERVICES_DATA, SPA_INFO, OFFICIAL_MENU_BOARD } from '../data/spaData';
 import { Service } from '../types';
 import { formatPrice } from '../utils/format';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ServicesSectionProps {
   onSelectServiceDetail: (service: Service) => void;
@@ -11,6 +12,8 @@ interface ServicesSectionProps {
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onSelectServiceDetail,
 }) => {
+  const { language, t } = useLanguage();
+
   return (
     <section id="dich-vu" className="py-16 sm:py-24 bg-[#FAF5ED] border-b border-[#DDC6AB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,13 +21,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#8C5E2D] uppercase mb-2 bg-[#EADAC5] px-3.5 py-1 rounded-full border border-[#D5C0A4]">
             <Sparkles className="w-3.5 h-3.5 text-[#8C5E2D]" />
-            <span>Bảng Giá & Dịch Vụ Niêm Yết Chính Thức</span>
+            <span>{t('services_tag')}</span>
           </div>
           <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-normal text-[#381F0B] text-balance">
-            Bảng Menu Dịch Vụ <span className="italic text-[#8C5E2D]">Phú Thành</span>
+            {t('services_title')}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#5D3F24] leading-relaxed">
-            Bảng giá niêm yết rõ ràng theo từng gói thời gian <strong>60 phút</strong> và <strong>90 phút</strong>. Giá trọn gói bình dân, không phát sinh phụ phí. Quý khách vui lòng gọi điện thoại trước để cơ sở chuẩn bị nước ngâm chân thảo mộc chu đáo.
+            {t('services_subtitle')}
           </p>
         </div>
 
@@ -44,13 +47,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     PT
                   </div>
                   <h3 className="font-serif-luxury text-2xl font-bold text-[#3E2108] tracking-wide">
-                    Phú Thành
+                    {language === 'vi' ? OFFICIAL_MENU_BOARD.title : OFFICIAL_MENU_BOARD.titleEn}
                   </h3>
                   <div className="text-xs tracking-wider uppercase font-semibold text-[#8C5E2D]">
-                    Massage Khiếm Thị
+                    {t('topbar_brand_tag')}
                   </div>
                   <div className="text-sm font-bold tracking-widest text-[#5A3114] mt-1 uppercase">
-                    MENU
+                    {t('services_menu_title')}
                   </div>
                 </div>
 
@@ -58,7 +61,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <div className="my-5 flex justify-center">
                   <div className="relative bg-[#5F3514] text-[#F9F3EA] text-sm font-bold uppercase tracking-wider py-1.5 px-8 rounded shadow-md border border-[#854E20] flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#E8C488]" />
-                    <span>GÓI 60 PHÚT</span>
+                    <span>{t('services_menu_badge_60')}</span>
                   </div>
                 </div>
 
@@ -72,22 +75,22 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       <div className="flex items-start gap-2 pr-2">
                         <span className="text-[#8C5E2D] font-bold mt-0.5">•</span>
                         <span className={`font-semibold ${item.isHot ? 'text-[#7A3608] font-bold' : 'text-[#3E2410]'}`}>
-                          {item.name}
+                          {language === 'vi' ? item.name : (item.nameEn || item.name)}
                           {item.isAddon && !item.isGift && (
                             <span className="text-[10px] ml-1.5 px-1.5 py-0.2 bg-[#EADAC5] text-[#694420] rounded font-normal">
-                              Dịch vụ thêm
+                              {t('services_addon_tag')}
                             </span>
                           )}
                           {item.isGift && (
                             <span className="text-[10px] ml-1.5 px-1.5 py-0.5 bg-[#E5F5E9] text-[#1B6634] rounded font-bold border border-[#B6E2C1]">
-                              Quà tặng
+                              {t('services_gift_tag')}
                             </span>
                           )}
                         </span>
                       </div>
                       {item.isGift ? (
                         <span className="font-bold text-xs sm:text-sm text-[#1B6634] bg-[#E5F5E9] px-2 py-0.5 rounded border border-[#B6E2C1] whitespace-nowrap">
-                          {item.giftText || 'Tặng Miễn Phí'}
+                          {language === 'vi' ? (item.giftText || 'Tặng Miễn Phí') : (item.giftTextEn || 'Free Gift')}
                         </span>
                       ) : (
                         <span className="font-bold text-sm sm:text-base text-[#8C5E2D] tabular-nums whitespace-nowrap">
@@ -106,7 +109,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   className="w-full py-3.5 bg-[#5F3514] hover:bg-[#77441B] text-white text-sm font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-[#80481B] active:scale-[0.98] group cursor-pointer"
                 >
                   <Phone className="w-4 h-4 text-[#F3D5A5] group-hover:rotate-12 transition-transform" />
-                  <span>Đặt Gói 60 Phút</span>
+                  <span>{t('services_pkg_60_btn')}</span>
                 </a>
               </div>
             </div>
@@ -115,7 +118,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             <div className="relative bg-[#FFFDF9] rounded-2xl border-4 border-[#8C5226] shadow-2xl p-4 sm:p-8 flex flex-col justify-between overflow-hidden ring-2 ring-[#D4AF37]/50">
               {/* Badge: Best Seller */}
               <div className="absolute top-3 right-3 bg-[#D4AF37] text-[#3A1E06] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded shadow-sm border border-[#E8C556]">
-                VIP Phục Hồi
+                {t('services_vip_badge')}
               </div>
 
               <div>
@@ -125,13 +128,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     PT
                   </div>
                   <h3 className="font-serif-luxury text-2xl font-bold text-[#3E2108] tracking-wide">
-                    Phú Thành
+                    {language === 'vi' ? OFFICIAL_MENU_BOARD.title : OFFICIAL_MENU_BOARD.titleEn}
                   </h3>
                   <div className="text-xs tracking-wider uppercase font-semibold text-[#8C5E2D]">
-                    Massage Khiếm Thị
+                    {t('topbar_brand_tag')}
                   </div>
                   <div className="text-sm font-bold tracking-widest text-[#8C5226] mt-1 uppercase">
-                    MENU
+                    {t('services_menu_title')}
                   </div>
                 </div>
 
@@ -139,7 +142,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <div className="my-5 flex justify-center">
                   <div className="relative bg-[#422208] text-[#F9F3EA] text-sm font-bold uppercase tracking-wider py-1.5 px-8 rounded shadow-md border border-[#D4AF37] flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#D4AF37]" />
-                    <span>GÓI 90 PHÚT</span>
+                    <span>{t('services_menu_badge_90')}</span>
                   </div>
                 </div>
 
@@ -153,22 +156,22 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       <div className="flex items-start gap-2 pr-2">
                         <span className="text-[#8C5E2D] font-bold mt-0.5">•</span>
                         <span className={`font-semibold ${item.isHot ? 'text-[#7A3608] font-bold' : 'text-[#3E2410]'}`}>
-                          {item.name}
+                          {language === 'vi' ? item.name : (item.nameEn || item.name)}
                           {item.isAddon && !item.isGift && (
                             <span className="text-[10px] ml-1.5 px-1.5 py-0.2 bg-[#EADAC5] text-[#694420] rounded font-normal">
-                              Dịch vụ thêm
+                              {t('services_addon_tag')}
                             </span>
                           )}
                           {item.isGift && (
                             <span className="text-[10px] ml-1.5 px-1.5 py-0.5 bg-[#E5F5E9] text-[#1B6634] rounded font-bold border border-[#B6E2C1]">
-                              Quà tặng
+                              {t('services_gift_tag')}
                             </span>
                           )}
                         </span>
                       </div>
                       {item.isGift ? (
                         <span className="font-bold text-xs sm:text-sm text-[#1B6634] bg-[#E5F5E9] px-2 py-0.5 rounded border border-[#B6E2C1] whitespace-nowrap">
-                          {item.giftText || 'Tặng Miễn Phí'}
+                          {language === 'vi' ? (item.giftText || 'Tặng Miễn Phí') : (item.giftTextEn || 'Free Gift')}
                         </span>
                       ) : (
                         <span className="font-bold text-sm sm:text-base text-[#8C5E2D] tabular-nums whitespace-nowrap">
@@ -187,7 +190,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   className="w-full py-3.5 bg-gradient-to-r from-[#422208] to-[#5F3514] hover:from-[#5C3210] hover:to-[#77441B] text-[#FDF6EC] text-sm font-bold rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 border-2 border-[#D4AF37] active:scale-[0.98] group cursor-pointer"
                 >
                   <Phone className="w-4 h-4 text-[#D4AF37] group-hover:rotate-12 transition-transform" />
-                  <span>Đặt Gói 90 Phút (VIP)</span>
+                  <span>{t('services_pkg_90_btn')}</span>
                 </a>
               </div>
             </div>
@@ -198,14 +201,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div>
           <div className="text-center max-w-xl mx-auto mb-10">
             <h3 className="font-serif-luxury text-2xl sm:text-3xl font-bold text-[#381F0B]">
-              Chi Tiết Quy Trình Từng Liệu Trình
+              {t('services_card_section_title')}
             </h3>
             <p className="text-xs sm:text-sm text-[#6C4B2F] mt-1.5">
-              Bấm vào từng dịch vụ để xem các bước trị liệu và lợi ích phục hồi sức khỏe
+              {t('services_card_section_desc')}
             </p>
           </div>
 
-          {/* Cards Grid: Render all services cleanly without tabs */}
+          {/* Cards Grid: Render all services cleanly */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {SERVICES_DATA.map((service) => (
               <div
@@ -217,23 +220,23 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#E2CEA7]">
                     <img
                       src={service.image}
-                      alt={service.name}
+                      alt={language === 'vi' ? service.name : (service.nameEn || service.name)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
                     {service.isHot && (
                       <div className="absolute top-3 left-3 bg-[#5F3514]/90 backdrop-blur-sm text-[#F3D5A5] text-[11px] font-bold px-2.5 py-1 rounded border border-[#80481B]">
-                        Khuyên Dùng
+                        {t('services_recommended')}
                       </div>
                     )}
                     {service.isGift && (
                       <div className="absolute top-3 right-3 bg-[#1B6634] text-[#E5F5E9] text-[11px] font-bold px-2.5 py-0.5 rounded shadow border border-[#B6E2C1]">
-                        Quà Tặng Miễn Phí
+                        {language === 'vi' ? 'Quà Tặng Miễn Phí' : '100% Free Gift'}
                       </div>
                     )}
                     {service.isAddon && !service.isGift && (
                       <div className="absolute top-3 right-3 bg-[#8C5E2D] text-white text-[11px] font-bold px-2 py-0.5 rounded">
-                        Dịch Vụ Thêm
+                        {t('services_addon_tag')}
                       </div>
                     )}
                   </div>
@@ -241,28 +244,28 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   {/* Body */}
                   <div className="p-4 sm:p-5">
                     <h4 className="font-serif-luxury text-lg sm:text-xl font-bold text-[#381F0B] group-hover:text-[#8C5E2D] transition-colors mb-1.5 sm:mb-2 leading-snug">
-                      {service.name}
+                      {language === 'vi' ? service.name : (service.nameEn || service.name)}
                     </h4>
 
                     <p className="text-xs sm:text-sm text-[#5C3E24] line-clamp-2 leading-relaxed mb-3 sm:mb-4">
-                      {service.shortDesc}
+                      {language === 'vi' ? service.shortDesc : (service.shortDescEn || service.shortDesc)}
                     </p>
 
                     {/* Dual Pricing Pill (60p and 90p) */}
                     <div className="p-2.5 sm:p-3 bg-[#F2E5D4] rounded-xl border border-[#DECBB4] mb-3">
                       <div className="text-[10px] sm:text-[11px] font-bold text-[#6D492A] uppercase mb-1 sm:mb-1.5">
-                        Mức Giá Niêm Yết:
+                        {t('services_price_label')}
                       </div>
                       {service.price90 ? (
                         <div className="grid grid-cols-2 gap-2 text-xs">
                           <div className="bg-[#FAF5ED] p-2 rounded-lg border border-[#D5C0A4] text-center">
-                            <span className="block text-[10px] sm:text-[11px] text-[#7E5735] font-medium">Gói 60 phút</span>
+                            <span className="block text-[10px] sm:text-[11px] text-[#7E5735] font-medium">{t('services_60m_label')}</span>
                             <strong className="text-xs sm:text-sm font-bold text-[#8C5E2D] tabular-nums">
                               {formatPrice(service.price60 || service.price)}
                             </strong>
                           </div>
                           <div className="bg-[#FAF5ED] p-2 rounded-lg border border-[#D5C0A4] text-center">
-                            <span className="block text-[10px] sm:text-[11px] text-[#7E5735] font-medium">Gói 90 phút</span>
+                            <span className="block text-[10px] sm:text-[11px] text-[#7E5735] font-medium">{t('services_90m_label')}</span>
                             <strong className="text-xs sm:text-sm font-bold text-[#5F3514] tabular-nums">
                               {formatPrice(service.price90)}
                             </strong>
@@ -270,14 +273,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         </div>
                       ) : service.isGift ? (
                         <div className="flex items-center justify-between text-xs py-0.5">
-                          <span className="text-[#1B6634] font-bold">Ưu đãi tri ân:</span>
+                          <span className="text-[#1B6634] font-bold">{language === 'vi' ? 'Ưu đãi tri ân:' : 'Special Gift:'}</span>
                           <span className="text-xs sm:text-sm font-bold text-[#1B6634] bg-[#E5F5E9] px-2 py-0.5 rounded border border-[#B6E2C1]">
-                            {service.giftText || 'Tặng Miễn Phí 100%'}
+                            {language === 'vi' ? (service.giftText || 'Tặng Miễn Phí 100%') : (service.giftTextEn || '100% Complimentary')}
                           </span>
                         </div>
                       ) : (
                         <div className="flex items-center justify-between text-xs py-0.5">
-                          <span className="text-[#6D492A] font-medium">Trọn gói dịch vụ:</span>
+                          <span className="text-[#6D492A] font-medium">{t('services_full_pkg')}</span>
                           <span className="text-sm sm:text-base font-bold text-[#8C5E2D] tabular-nums">
                             {formatPrice(service.price)}
                           </span>
@@ -295,14 +298,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       className="px-2.5 sm:px-3 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A2F17] bg-[#EFE3D2] border border-[#D5C0A4] rounded-xl hover:bg-[#E5D2BC] transition-colors flex items-center justify-center gap-1 cursor-pointer whitespace-nowrap active:scale-95"
                     >
                       <Info className="w-3.5 h-3.5 text-[#8C5E2D] shrink-0" />
-                      <span>Xem Chi Tiết</span>
+                      <span>{t('services_view_process')}</span>
                     </button>
                     <a
                       href={`tel:${SPA_INFO.hotlineRaw}`}
                       className="px-2.5 sm:px-3 py-2.5 text-[11px] sm:text-xs font-bold text-white bg-[#5F3514] rounded-xl hover:bg-[#77441B] transition-colors flex items-center justify-center gap-1 cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
                     >
                       <Phone className="w-3.5 h-3.5 text-[#F3D5A5] shrink-0" />
-                      <span>Gọi Giữ Chỗ</span>
+                      <span>{t('services_book_btn')}</span>
                     </a>
                   </div>
                 </div>

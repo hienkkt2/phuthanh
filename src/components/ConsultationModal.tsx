@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Activity, Phone, ArrowRight, MessageCircle, Check } from 'lucide-react';
-import { SERVICES_DATA, SPA_INFO } from '../data/spaData';
+import { SPA_INFO } from '../data/spaData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -13,33 +14,34 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 }) => {
   const [step, setStep] = useState<number>(1);
   const [selectedConcern, setSelectedConcern] = useState<string>('neck');
+  const { language, t } = useLanguage();
 
   if (!isOpen) return null;
 
   const concerns = [
     {
       id: 'neck',
-      title: 'Đau mỏi cổ vai gáy, cứng cổ & đau nửa đầu',
-      desc: 'Ngồi máy tính nhiều giờ, bả vai căng cứng như đá, đau lan lên vùng chẩm và tê bì cánh tay.',
-      recommend: 'Xoa Bóp - Bấm Huyệt (140.000đ / 60p — 210.000đ / 90p)',
+      title: language === 'vi' ? 'Đau mỏi cổ vai gáy, cứng cổ & đau nửa đầu' : 'Stiff neck, shoulder tension & tension headaches',
+      desc: language === 'vi' ? 'Ngồi máy tính nhiều giờ, bả vai căng cứng như đá, đau lan lên vùng chẩm và tê bì cánh tay.' : 'Prolonged screen time, rock-solid shoulder muscles, tension radiating to occiput and arm numbness.',
+      recommend: language === 'vi' ? 'Xoa Bóp - Bấm Huyệt (140.000đ / 60p — 210.000đ / 90p)' : 'Acupressure & Body Massage (140k / 60m — 210k / 90m)',
     },
     {
       id: 'back',
-      title: 'Đau lưng, thắt lưng & đau nhói dây thần kinh tọa',
-      desc: 'Khó cúi người, đau ê ẩm vùng thắt lưng L4-L5, nhói buốt lan từ mông xuống bắp chân.',
-      recommend: 'Xoa Bóp - Bấm Huyệt - Đá Nóng (170.000đ / 60p — 240.000đ / 90p)',
+      title: language === 'vi' ? 'Đau lưng, thắt lưng & đau nhói dây thần kinh tọa' : 'Lower back pain, lumbar strain & sciatica discomfort',
+      desc: language === 'vi' ? 'Khó cúi người, đau ê ẩm vùng thắt lưng L4-L5, nhói buốt lan từ mông xuống bắp chân.' : 'Difficulty bending, chronic ache in lumbar L4-L5, sciatic nerve tingling down to calf.',
+      recommend: language === 'vi' ? 'Xoa Bóp - Bấm Huyệt - Đá Nóng (170.000đ / 60p — 240.000đ / 90p)' : 'Massage & Basalt Hot Stone (170k / 60m — 240k / 90m)',
     },
     {
       id: 'insomnia',
-      title: 'Mất ngủ kinh niên, lạnh bàn chân & mệt mỏi',
-      desc: 'Chân tay lạnh, khó vào giấc, đêm trằn trọc nhiều mộng mị, thức dậy người uể oải.',
-      recommend: 'Massage Chân - Ngâm Chân Thảo Dược (170.000đ / 60p — 240.000đ / 90p)',
+      title: language === 'vi' ? 'Mất ngủ kinh niên, lạnh bàn chân & mệt mỏi' : 'Chronic insomnia, cold feet & restless sleep',
+      desc: language === 'vi' ? 'Chân tay lạnh, khó vào giấc, đêm trằn trọc nhiều mộng mị, thức dậy người uể oải.' : 'Cold extremities, trouble falling asleep, unrestful nights, waking up exhausted.',
+      recommend: language === 'vi' ? 'Massage Chân - Ngâm Chân Thảo Dược (170.000đ / 60p — 240.000đ / 90p)' : 'Foot Reflexology & Herbal Foot Bath (170k / 60m — 240k / 90m)',
     },
     {
       id: 'fatigue',
-      title: 'Toàn thân nhức mỏi, cảm gió, nhiễm lạnh hàn ẩm',
-      desc: 'Cơ bắp rã rời sau những ngày đi lại tham quan xứ Huế hoặc lao động mệt mỏi.',
-      recommend: 'Xoa Bóp - Bấm Huyệt - Giác Hơi - Đá Nóng (200.000đ / 60p — 270.000đ / 90p)',
+      title: language === 'vi' ? 'Toàn thân nhức mỏi, cảm gió, nhiễm lạnh hàn ẩm' : 'Full body fatigue, wind-chill & travel exhaustion',
+      desc: language === 'vi' ? 'Cơ bắp rã rời sau những ngày đi lại tham quan xứ Huế hoặc lao động mệt mỏi.' : 'Exhausted muscles after long walking tours around Hue or strenuous work.',
+      recommend: language === 'vi' ? 'Xoa Bóp - Bấm Huyệt - Giác Hơi - Đá Nóng (200.000đ / 60p — 270.000đ / 90p)' : 'VIP Acupressure + Bamboo Cupping + Hot Stone (200k / 60m — 270k / 90m)',
     },
   ];
 
@@ -51,6 +53,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
         <button
           onClick={onClose}
           className="absolute top-5 right-5 p-2 text-[#7C5A3C] hover:text-[#381F0B] hover:bg-[#EBDBC6] rounded-full transition-colors cursor-pointer"
+          aria-label={t('modal_close')}
         >
           <X className="w-5 h-5" />
         </button>
@@ -59,13 +62,15 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-[#8C5E2D] uppercase tracking-wider mb-2">
               <Activity className="w-3.5 h-3.5" />
-              <span>Tư Vấn Tình Trạng Đau Mỏi</span>
+              <span>{language === 'vi' ? 'Tư Vấn Tình Trạng Đau Mỏi' : 'Condition Consultation'}</span>
             </div>
             <h3 className="font-serif-luxury text-2xl font-bold text-[#381F0B] mb-2">
-              Bạn đang gặp vấn đề ở vùng cơ thể nào?
+              {language === 'vi' ? 'Bạn đang gặp vấn đề ở vùng cơ thể nào?' : 'Where do you feel soreness or fatigue?'}
             </h3>
             <p className="text-xs text-[#5D3F24] mb-5">
-              Chọn triệu chứng để Phú Thành gợi ý bài xoa bóp bấm huyệt hiệu quả nhất.
+              {language === 'vi'
+                ? 'Chọn triệu chứng để Phú Thành gợi ý bài xoa bóp bấm huyệt hiệu quả nhất.'
+                : 'Select your symptoms so our therapists can recommend the optimal therapy.'}
             </p>
 
             <div className="space-y-3 mb-6">
@@ -94,7 +99,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               onClick={() => setStep(2)}
               className="w-full py-3 bg-[#5F3514] text-white text-xs font-bold rounded-lg hover:bg-[#77441B] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
-              <span>Xem Liệu Trình Đề Xuất & Liên Hệ</span>
+              <span>{language === 'vi' ? 'Xem Liệu Trình Đề Xuất & Liên Hệ' : 'View Recommended Therapy & Contact'}</span>
               <ArrowRight className="w-4 h-4 text-[#F3D5A5]" />
             </button>
           </div>
@@ -102,7 +107,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-[#8C5E2D] uppercase tracking-wider mb-2">
               <Check className="w-4 h-4 text-emerald-700" />
-              <span>Phác Đồ Bấm Huyệt Đề Xuất Cho Bạn</span>
+              <span>{language === 'vi' ? 'Phác Đồ Bấm Huyệt Đề Xuất Cho Bạn' : 'Recommended Protocol For You'}</span>
             </div>
 
             <h3 className="font-serif-luxury text-2xl font-bold text-[#381F0B] mb-2">
@@ -111,10 +116,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
             <div className="p-4 bg-[#F2E5D4] rounded-xl border border-[#D5C0A4] text-xs text-[#54361C] space-y-2 mb-6">
               <p>
-                Kỹ thuật viên khiếm thị sẽ dùng kỹ thuật miết cơ sâu, bấm chuẩn các huyệt đạo trọng yếu để gỡ bỏ điểm co cứng và giải tỏa chèn ép dây thần kinh.
+                {language === 'vi'
+                  ? 'Kỹ thuật viên khiếm thị sẽ dùng kỹ thuật miết cơ sâu, bấm chuẩn các huyệt đạo trọng yếu để gỡ bỏ điểm co cứng và giải tỏa chèn ép dây thần kinh.'
+                  : 'Our blind therapists will apply deep trigger-point strokes and authentic acupressure to release muscular tension and free compressed nerves.'}
               </p>
               <div className="font-semibold text-[#8C5E2D] pt-1">
-                Địa chỉ: {SPA_INFO.address}
+                {t('quick_address_label')} {SPA_INFO.address}
               </div>
             </div>
 
@@ -124,7 +131,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 className="w-full py-3.5 bg-[#5F3514] text-white text-xs sm:text-sm font-bold rounded-lg hover:bg-[#77441B] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md border border-[#80481B] active:scale-95"
               >
                 <Phone className="w-4 h-4 text-[#F3D5A5] animate-bounce" />
-                <span>Gọi 0905 700 923 Để Giữ Chỗ Ngay</span>
+                <span>{language === 'vi' ? 'Gọi 0905 700 923 Để Giữ Chỗ Ngay' : 'Call 0905 700 923 to Reserve'}</span>
               </a>
 
               <a
@@ -134,14 +141,14 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 className="w-full py-2.5 bg-[#E4D1BA] text-[#3D2510] text-xs font-bold rounded-lg hover:bg-[#D9C4AB] transition-colors flex items-center justify-center gap-2 border border-[#C5AF96]"
               >
                 <MessageCircle className="w-4 h-4 text-[#0068FF]" />
-                <span>Nhắn Tin Trao Đổi Qua Zalo</span>
+                <span>{language === 'vi' ? 'Nhắn Tin Trao Đổi Qua Zalo' : 'Chat via Zalo / WhatsApp'}</span>
               </a>
 
               <button
                 onClick={() => setStep(1)}
-                className="w-full py-1 text-xs text-[#704E31] hover:underline text-center"
+                className="w-full py-1 text-xs text-[#704E31] hover:underline text-center cursor-pointer"
               >
-                Kiểm tra lại triệu chứng khác
+                {language === 'vi' ? 'Kiểm tra lại triệu chứng khác' : 'Check other symptoms'}
               </button>
             </div>
           </div>

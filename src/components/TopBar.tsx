@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Clock, MapPin, Menu, X } from 'lucide-react';
+import { Phone, Clock, MapPin, Menu, X, Globe } from 'lucide-react';
 import { SPA_INFO } from '../data/spaData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface TopBarProps {
   onDirectCall: () => void;
@@ -9,6 +10,7 @@ interface TopBarProps {
 export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,10 +21,11 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Dịch Vụ & Giá', href: '#dich-vu' },
-    { name: 'Hình Ảnh Thực Tế', href: '#hinh-anh' },
-    { name: 'Về Phú Thành', href: '#ve-chung-toi' },
-    { name: 'Đánh Giá', href: '#cam-nhan' },
+    { name: t('nav_services'), href: '#dich-vu' },
+    { name: t('nav_gallery'), href: '#hinh-anh' },
+    { name: t('nav_about'), href: '#ve-chung-toi' },
+    { name: t('nav_reviews'), href: '#cam-nhan' },
+    { name: t('nav_location'), href: '#co-so' },
   ];
 
   return (
@@ -44,7 +47,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
             <span className="text-[#8C643E]">·</span>
             <span className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-[#E0B57C]" />
-              <span>{SPA_INFO.workingHours}</span>
+              <span>{t('topbar_hours')}</span>
             </span>
           </div>
           <div className="flex items-center gap-4 text-[#D8C0A6]">
@@ -54,7 +57,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
               rel="noopener noreferrer"
               className="hover:text-[#F3D5A5] transition-colors"
             >
-              Xem Bản Đồ Google Maps
+              {t('topbar_maps')}
             </a>
             <span className="text-[#8C643E]">·</span>
             <a
@@ -62,8 +65,37 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
               className="inline-flex items-center gap-1.5 text-[#F3D5A5] hover:text-white font-semibold transition-colors"
             >
               <Phone className="w-3.5 h-3.5 animate-pulse" />
-              <span>Gọi tư vấn: {SPA_INFO.hotline}</span>
+              <span>{t('topbar_call_advice')}</span>
             </a>
+            <span className="text-[#8C643E]">·</span>
+
+            {/* Language Switcher Desktop in top bar */}
+            <div className="inline-flex items-center bg-[#2F1807] rounded-md p-0.5 border border-[#5A3114]">
+              <button
+                onClick={() => setLanguage('vi')}
+                className={`px-2 py-0.5 rounded text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                  language === 'vi'
+                    ? 'bg-[#8C5E2D] text-white shadow-xs'
+                    : 'text-[#C5A88B] hover:text-white'
+                }`}
+                title="Tiếng Việt"
+              >
+                <span>🇻🇳</span>
+                <span>VI</span>
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-2 py-0.5 rounded text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                  language === 'en'
+                    ? 'bg-[#8C5E2D] text-white shadow-xs'
+                    : 'text-[#C5A88B] hover:text-white'
+                }`}
+                title="English"
+              >
+                <span>🇬🇧</span>
+                <span>EN</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +119,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
                 Phú Thành
               </span>
               <span className="text-[10px] tracking-wider uppercase font-semibold text-[#8C5E2D]">
-                Massage Bấm Huyệt Khiếm Thị
+                {t('topbar_brand_tag')}
               </span>
             </div>
           </a>
@@ -105,15 +137,43 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
             ))}
           </nav>
 
-          {/* Primary Action: Direct Call Button (Hidden on mobile as requested) */}
-          <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Primary Action & Language Switcher */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Language Switcher Pill (Visible on both Mobile & Desktop) */}
+            <div className="flex items-center rounded-lg bg-[#EAE0D2] p-0.5 border border-[#D5C2AB] text-xs font-bold shadow-xs">
+              <button
+                onClick={() => setLanguage('vi')}
+                className={`px-2 py-1 rounded-md transition-all cursor-pointer flex items-center gap-1 ${
+                  language === 'vi'
+                    ? 'bg-[#5F3514] text-[#F3D5A5] shadow-xs'
+                    : 'text-[#6B4628] hover:text-[#3A220F]'
+                }`}
+                title="Tiếng Việt"
+              >
+                <span>🇻🇳</span>
+                <span className="text-[11px] font-bold">VI</span>
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-2 py-1 rounded-md transition-all cursor-pointer flex items-center gap-1 ${
+                  language === 'en'
+                    ? 'bg-[#5F3514] text-[#F3D5A5] shadow-xs'
+                    : 'text-[#6B4628] hover:text-[#3A220F]'
+                }`}
+                title="English"
+              >
+                <span>🇬🇧</span>
+                <span className="text-[11px] font-bold">EN</span>
+              </button>
+            </div>
+
+            {/* Direct Call Button (Hidden on mobile as previously requested) */}
             <a
               href={`tel:${SPA_INFO.hotlineRaw}`}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#5F3514] rounded-lg sm:rounded-md hover:bg-[#77441B] transition-colors shadow-md cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#5F3514] rounded-lg hover:bg-[#77441B] transition-colors shadow-md cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
             >
               <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F3D5A5] animate-bounce" />
-              <span className="hidden sm:inline">Gọi Ngay: </span>
-              <span>{SPA_INFO.hotline}</span>
+              <span>{t('topbar_call_btn')} {SPA_INFO.hotline}</span>
             </a>
 
             {/* Mobile menu toggle */}
@@ -133,9 +193,35 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
             <div className="p-2.5 bg-[#EFE3D2] rounded-lg border border-[#D9C4AB] text-xs text-[#523318] mb-2">
               <div className="font-semibold flex items-center gap-1 text-[#3A220F]">
                 <MapPin className="w-3.5 h-3.5 text-[#8C5E2D]" />
-                <span>Cơ sở duy nhất:</span>
+                <span>{t('hero_only_branch')}</span>
               </div>
               <div className="mt-0.5">{SPA_INFO.address}</div>
+            </div>
+
+            {/* Language Switcher in Mobile Drawer */}
+            <div className="flex items-center justify-between p-2 bg-[#EFE3D2] rounded-lg border border-[#D9C4AB] text-xs">
+              <div className="flex items-center gap-1.5 font-medium text-[#4D321A]">
+                <Globe className="w-4 h-4 text-[#8C5E2D]" />
+                <span>{language === 'vi' ? 'Ngôn ngữ hiển thị:' : 'Language:'}</span>
+              </div>
+              <div className="flex items-center bg-[#DFCBB3] p-0.5 rounded-md">
+                <button
+                  onClick={() => setLanguage('vi')}
+                  className={`px-2 py-0.5 rounded text-xs font-bold transition-all ${
+                    language === 'vi' ? 'bg-[#5F3514] text-[#F3D5A5]' : 'text-[#5A381E]'
+                  }`}
+                >
+                  Tiếng Việt
+                </button>
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-0.5 rounded text-xs font-bold transition-all ${
+                    language === 'en' ? 'bg-[#5F3514] text-[#F3D5A5]' : 'text-[#5A381E]'
+                  }`}
+                >
+                  English
+                </button>
+              </div>
             </div>
 
             <nav className="flex flex-col space-y-1.5">
@@ -156,7 +242,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
                 className="w-full py-2.5 text-xs font-semibold text-white bg-[#5F3514] rounded-md flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <Phone className="w-3.5 h-3.5 text-[#F3D5A5]" />
-                <span>Gọi 0905 700 923</span>
+                <span>{t('topbar_call_now')}</span>
               </a>
             </div>
           </div>

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { BookOpen, Clock, ArrowRight, X, Phone } from 'lucide-react';
 import { ARTICLES_DATA, SPA_INFO } from '../data/spaData';
 import { Article } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 export const BlogSection: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const { language, t } = useLanguage();
 
   return (
     <section id="cam-nang" className="py-16 sm:py-24 bg-[#F8F2E8] border-b border-[#DDC6AB]">
@@ -13,13 +15,16 @@ export const BlogSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#8C5E2D] uppercase mb-2 bg-[#EADAC5] px-3 py-1 rounded-full border border-[#D5C0A4]">
             <BookOpen className="w-3.5 h-3.5 text-[#8C5E2D]" />
-            <span>Kiến Thức Dưỡng Sinh & Bấm Huyệt Đông Y</span>
+            <span>{t('blog_tag')}</span>
           </div>
           <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-normal text-[#381F0B] text-balance">
-            Cẩm Nang Sống Khỏe & <span className="italic text-[#8C5E2D]">Bảo Vệ Cột Sống</span>
+            {language === 'vi' ? 'Cẩm Nang Sống Khỏe & ' : 'Wellness Guide & '}
+            <span className="italic text-[#8C5E2D]">
+              {language === 'vi' ? 'Bảo Vệ Cột Sống' : 'Spinal Health'}
+            </span>
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#5D3F24]">
-            Kinh nghiệm đúc kết từ những người thầy bấm huyệt khiếm thị lâu năm tại Huế, giúp bạn tự bảo dưỡng cơ thể mỗi ngày.
+            {t('blog_subtitle')}
           </p>
         </div>
 
@@ -34,12 +39,12 @@ export const BlogSection: React.FC = () => {
                 <div className="relative aspect-[16/10] overflow-hidden bg-[#E2CEA7]">
                   <img
                     src={art.image}
-                    alt={art.title}
+                    alt={language === 'vi' ? art.title : (art.titleEn || art.title)}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-3 left-3 bg-[#5F3514]/90 backdrop-blur-sm text-[11px] font-bold text-[#F3D5A5] px-2.5 py-1 rounded border border-[#80481B]">
-                    {art.category}
+                    {language === 'vi' ? art.category : (art.categoryEn || art.category)}
                   </div>
                 </div>
 
@@ -49,16 +54,16 @@ export const BlogSection: React.FC = () => {
                     <span>·</span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3 h-3 text-[#8C5E2D]" />
-                      <span>{art.readTime}</span>
+                      <span>{language === 'vi' ? art.readTime : (art.readTimeEn || art.readTime)}</span>
                     </span>
                   </div>
 
                   <h3 className="font-serif-luxury text-xl font-bold text-[#381F0B] leading-snug group-hover:text-[#8C5E2D] transition-colors mb-3">
-                    {art.title}
+                    {language === 'vi' ? art.title : (art.titleEn || art.title)}
                   </h3>
 
                   <p className="text-xs sm:text-sm text-[#5C3E24] line-clamp-3 leading-relaxed">
-                    {art.excerpt}
+                    {language === 'vi' ? art.excerpt : (art.excerptEn || art.excerpt)}
                   </p>
                 </div>
               </div>
@@ -68,7 +73,7 @@ export const BlogSection: React.FC = () => {
                   onClick={() => setSelectedArticle(art)}
                   className="text-xs font-bold text-[#8C5E2D] hover:text-[#5F3514] flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
-                  <span>Đọc tiếp bài viết</span>
+                  <span>{t('blog_read_more')}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -84,22 +89,23 @@ export const BlogSection: React.FC = () => {
             <button
               onClick={() => setSelectedArticle(null)}
               className="absolute top-5 right-5 p-2 text-[#7C5A3C] hover:text-[#381F0B] hover:bg-[#EBDBC6] rounded-full transition-colors cursor-pointer"
+              aria-label={t('modal_close')}
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="text-xs font-bold text-[#8C5E2D] uppercase tracking-wider mb-2">
-              {selectedArticle.category}
+              {language === 'vi' ? selectedArticle.category : (selectedArticle.categoryEn || selectedArticle.category)}
             </div>
 
             <h2 className="font-serif-luxury text-2xl sm:text-3xl font-bold text-[#381F0B] mb-3 pr-6">
-              {selectedArticle.title}
+              {language === 'vi' ? selectedArticle.title : (selectedArticle.titleEn || selectedArticle.title)}
             </h2>
 
             <div className="flex items-center gap-2 text-xs text-[#704E31] mb-6 font-medium">
-              <span>Đăng ngày: {selectedArticle.date}</span>
+              <span>{language === 'vi' ? `Đăng ngày: ${selectedArticle.date}` : `Date: ${selectedArticle.date}`}</span>
               <span>·</span>
-              <span>{selectedArticle.readTime}</span>
+              <span>{language === 'vi' ? selectedArticle.readTime : (selectedArticle.readTimeEn || selectedArticle.readTime)}</span>
             </div>
 
             <div className="rounded-xl overflow-hidden aspect-[16/9] mb-6 border border-[#D5C0A4]">
@@ -112,7 +118,7 @@ export const BlogSection: React.FC = () => {
             </div>
 
             <div className="space-y-4 text-xs sm:text-sm text-[#4D311A] leading-relaxed">
-              {selectedArticle.content.map((p, idx) => (
+              {(language === 'vi' ? selectedArticle.content : (selectedArticle.contentEn || selectedArticle.content)).map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
             </div>
@@ -128,9 +134,9 @@ export const BlogSection: React.FC = () => {
 
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="px-5 py-2.5 bg-[#5F3514] text-white text-xs font-bold rounded-md hover:bg-[#77441B] transition-colors"
+                className="px-5 py-2.5 bg-[#5F3514] text-white text-xs font-bold rounded-md hover:bg-[#77441B] transition-colors cursor-pointer"
               >
-                Đóng bài viết
+                {language === 'vi' ? 'Đóng bài viết' : 'Close Article'}
               </button>
             </div>
           </div>

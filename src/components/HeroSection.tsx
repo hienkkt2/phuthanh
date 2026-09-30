@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, MapPin, ShieldCheck, HeartHandshake, ArrowRight, MessageCircle } from 'lucide-react';
 import { SPA_INFO } from '../data/spaData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroSectionProps {
   onDirectCall: () => void;
@@ -11,6 +12,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onDirectCall,
   onOpenConsult,
 }) => {
+  const { language, t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF5EE] via-[#F4ECE0] to-[#EFE3D2] pt-6 pb-12 lg:pt-10 lg:pb-16 border-b border-[#DECBB4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,16 +22,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-6 space-y-5">
             <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#8C5E2D] uppercase bg-[#EBD9C3] px-3 py-1 rounded-full border border-[#D8C1A4]">
               <HeartHandshake className="w-3.5 h-3.5 text-[#8C5E2D]" />
-              <span>Phú Thành — Massage Khiếm Thị TP. Huế</span>
+              <span>{t('hero_tag')}</span>
             </div>
 
             <h1 className="font-serif-luxury text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#381F0B] leading-[1.18] text-balance">
-              Đôi Bàn Tay Kỳ Diệu, <br />
-              <span className="italic font-normal text-[#8C5E2D]">Trị Liệu Bằng Cả Trái Tim</span>
+              {t('hero_title_line1')} <br />
+              <span className="italic font-normal text-[#8C5E2D]">{t('hero_title_line2')}</span>
             </h1>
 
             <p className="text-base sm:text-lg text-[#523720] leading-relaxed max-w-xl font-normal">
-              Đội ngũ kỹ thuật viên khiếm thị tay nghề cao, được đào tạo chính quy từ Hội Người Mù & Viện Y Dược Học Dân Tộc. Đôi bàn tay bắt trúng huyệt đạo, gỡ sạch nút thắt co cơ cổ vai gáy, thoát vị đĩa đệm, đau lưng và mất ngủ.
+              {t('hero_desc')}
             </p>
 
             {/* Address Banner Notice */}
@@ -36,7 +39,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#8C5E2D] shrink-0" />
                 <div className="text-xs sm:text-sm">
-                  <span className="font-bold text-[#331B07]">Cơ sở duy nhất:</span>{' '}
+                  <span className="font-bold text-[#331B07]">{t('hero_only_branch')}</span>{' '}
                   <span className="text-[#5F3514] font-medium">{SPA_INFO.address}</span>
                 </div>
               </div>
@@ -46,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 rel="noopener noreferrer"
                 className="shrink-0 px-2.5 py-1 bg-[#8C5E2D] text-white hover:bg-[#5F3514] text-[11px] font-bold rounded-lg transition-colors whitespace-nowrap"
               >
-                Chỉ Đường
+                {t('hero_directions_btn')}
               </a>
             </div>
 
@@ -57,7 +60,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-bold text-white bg-[#5F3514] rounded-xl hover:bg-[#77441B] transition-all shadow-md active:scale-[0.99] border border-[#80481B]"
               >
                 <Phone className="w-5 h-5 text-[#F3D5A5] animate-bounce" />
-                <span>Gọi Điện Đặt Chỗ: {SPA_INFO.hotline}</span>
+                <span>{t('hero_call_book')}</span>
               </a>
 
               <div className="grid grid-cols-2 gap-3">
@@ -68,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-[#3D2510] bg-[#E9D9C3] border border-[#CBB092] rounded-xl hover:bg-[#DFCDB4] transition-colors shadow-sm"
                 >
                   <MessageCircle className="w-4 h-4 text-[#0068FF] shrink-0" />
-                  <span>Nhắn Tin Zalo</span>
+                  <span>{t('hero_chat_zalo')}</span>
                 </a>
 
                 <a
@@ -78,7 +81,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-[#5F3514] bg-[#FAF5EE] border border-[#D5C0A4] rounded-xl hover:bg-[#EFE3D2] transition-colors shadow-sm"
                 >
                   <MapPin className="w-4 h-4 text-[#8C5E2D] shrink-0" />
-                  <span>Xem Google Map</span>
+                  <span>{t('hero_view_maps')}</span>
                 </a>
               </div>
             </div>
@@ -90,7 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   18+
                 </div>
                 <div className="text-xs text-[#6F4B2B] mt-1.5 font-medium leading-snug">
-                  Năm kinh nghiệm
+                  {language === 'vi' ? 'Năm kinh nghiệm' : 'Years Experience'}
                 </div>
               </div>
 
@@ -99,7 +102,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   100%
                 </div>
                 <div className="text-xs text-[#6F4B2B] mt-1.5 font-medium leading-snug">
-                  KTV có chứng chỉ
+                  {language === 'vi' ? 'KTV có chứng chỉ' : 'Certified Staff'}
                 </div>
               </div>
 
@@ -108,16 +111,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   100%
                 </div>
                 <div className="text-xs text-[#6F4B2B] mt-1.5 font-medium leading-snug">
-                  Khăn ga thơm sạch
+                  {language === 'vi' ? 'Khăn ga thơm sạch' : 'Fresh Clean Linens'}
                 </div>
               </div>
 
               <div className="bg-[#EFE3D2]/70 border border-[#D8C2A7] rounded-xl p-3 flex flex-col justify-center">
                 <div className="text-2xl sm:text-3xl font-extrabold text-[#381F0B] tracking-tight leading-none">
-                  Từ 140k
+                  {language === 'vi' ? 'Từ 140k' : 'From 140k'}
                 </div>
                 <div className="text-xs text-[#6F4B2B] mt-1.5 font-medium leading-snug">
-                  Gói xoa bóp 60 phút
+                  {language === 'vi' ? 'Gói xoa bóp 60 phút' : '60-min Massage'}
                 </div>
               </div>
             </div>
@@ -139,17 +142,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div>
                   <div className="text-xs font-bold text-[#3D2510] flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-[#8C5E2D]" />
-                    <span>Không Gian Ấm Cúng — Sạch Sẽ — Văn Minh</span>
+                    <span>{language === 'vi' ? 'Không Gian Ấm Cúng — Sạch Sẽ — Văn Minh' : 'Cozy, Clean & Respectful Space'}</span>
                   </div>
                   <div className="text-[11px] text-[#694729] mt-0.5 font-medium">
-                    Phòng máy lạnh, khăn ga giặt sấy thơm mùi sả chanh thay mới 100%
+                    {language === 'vi' ? 'Phòng máy lạnh, khăn ga giặt sấy thơm mùi sả chanh thay mới 100%' : 'Air-conditioned rooms, 100% fresh lemongrass-scented sanitized linens'}
                   </div>
                 </div>
                 <a
                   href="#dich-vu"
                   className="text-xs font-bold text-[#8C5E2D] hover:text-[#5F3514] flex items-center gap-1 whitespace-nowrap pl-3 border-l border-[#DCC7AF]"
                 >
-                  <span>Bảng Giá</span>
+                  <span>{language === 'vi' ? 'Bảng Giá' : 'Menu'}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
