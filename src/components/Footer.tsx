@@ -45,8 +45,8 @@ export const Footer: React.FC = () => {
                   <strong className="text-white block text-sm">
                     {SPA_INFO.address}
                   </strong>
-                  <span className="text-[11px] text-[#CBB299] mt-1 block">
-                    (Vào kiệt 186 Nguyễn Sinh Cung 20m, nhà số 2 bên tay phải)
+                  <span className="text-[11px] text-[#CBB299] mt-0.5 block">
+                    Phường Vỹ Dạ, Thành phố Huế
                   </span>
                 </div>
               </div>

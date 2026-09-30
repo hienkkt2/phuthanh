@@ -32,7 +32,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div className="mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* GÓI 60 PHÚT BOARD */}
-            <div className="relative bg-[#FFFDF9] rounded-2xl border-4 border-[#5A3114] shadow-2xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden">
+            <div className="relative bg-[#FFFDF9] rounded-2xl border-4 border-[#5A3114] shadow-2xl p-4 sm:p-8 flex flex-col justify-between overflow-hidden">
               {/* Corner floral motif subtle accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#EAD8C3]/50 to-transparent pointer-events-none rounded-bl-full" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#EAD8C3]/50 to-transparent pointer-events-none rounded-tr-full" />
@@ -73,16 +73,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         <span className="text-[#8C5E2D] font-bold mt-0.5">•</span>
                         <span className={`font-semibold ${item.isHot ? 'text-[#7A3608] font-bold' : 'text-[#3E2410]'}`}>
                           {item.name}
-                          {item.isAddon && (
+                          {item.isAddon && !item.isGift && (
                             <span className="text-[10px] ml-1.5 px-1.5 py-0.2 bg-[#EADAC5] text-[#694420] rounded font-normal">
                               Dịch vụ thêm
                             </span>
                           )}
+                          {item.isGift && (
+                            <span className="text-[10px] ml-1.5 px-1.5 py-0.5 bg-[#E5F5E9] text-[#1B6634] rounded font-bold border border-[#B6E2C1]">
+                              Quà tặng
+                            </span>
+                          )}
                         </span>
                       </div>
-                      <span className="font-bold text-sm sm:text-base text-[#8C5E2D] tabular-nums whitespace-nowrap">
-                        {formatPrice(item.price)}
-                      </span>
+                      {item.isGift ? (
+                        <span className="font-bold text-xs sm:text-sm text-[#1B6634] bg-[#E5F5E9] px-2 py-0.5 rounded border border-[#B6E2C1] whitespace-nowrap">
+                          {item.giftText || 'Tặng Miễn Phí'}
+                        </span>
+                      ) : (
+                        <span className="font-bold text-sm sm:text-base text-[#8C5E2D] tabular-nums whitespace-nowrap">
+                          {formatPrice(item.price)}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -101,7 +112,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             </div>
 
             {/* GÓI 90 PHÚT BOARD (VIP FEATURED) */}
-            <div className="relative bg-[#FFFDF9] rounded-2xl border-4 border-[#8C5226] shadow-2xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden ring-2 ring-[#D4AF37]/50">
+            <div className="relative bg-[#FFFDF9] rounded-2xl border-4 border-[#8C5226] shadow-2xl p-4 sm:p-8 flex flex-col justify-between overflow-hidden ring-2 ring-[#D4AF37]/50">
               {/* Badge: Best Seller */}
               <div className="absolute top-3 right-3 bg-[#D4AF37] text-[#3A1E06] text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded shadow-sm border border-[#E8C556]">
                 VIP Phục Hồi
@@ -143,16 +154,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         <span className="text-[#8C5E2D] font-bold mt-0.5">•</span>
                         <span className={`font-semibold ${item.isHot ? 'text-[#7A3608] font-bold' : 'text-[#3E2410]'}`}>
                           {item.name}
-                          {item.isAddon && (
+                          {item.isAddon && !item.isGift && (
                             <span className="text-[10px] ml-1.5 px-1.5 py-0.2 bg-[#EADAC5] text-[#694420] rounded font-normal">
                               Dịch vụ thêm
                             </span>
                           )}
+                          {item.isGift && (
+                            <span className="text-[10px] ml-1.5 px-1.5 py-0.5 bg-[#E5F5E9] text-[#1B6634] rounded font-bold border border-[#B6E2C1]">
+                              Quà tặng
+                            </span>
+                          )}
                         </span>
                       </div>
-                      <span className="font-bold text-sm sm:text-base text-[#8C5E2D] tabular-nums whitespace-nowrap">
-                        {formatPrice(item.price)}
-                      </span>
+                      {item.isGift ? (
+                        <span className="font-bold text-xs sm:text-sm text-[#1B6634] bg-[#E5F5E9] px-2 py-0.5 rounded border border-[#B6E2C1] whitespace-nowrap">
+                          {item.giftText || 'Tặng Miễn Phí'}
+                        </span>
+                      ) : (
+                        <span className="font-bold text-sm sm:text-base text-[#8C5E2D] tabular-nums whitespace-nowrap">
+                          {formatPrice(item.price)}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -204,7 +226,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         Khuyên Dùng
                       </div>
                     )}
-                    {service.isAddon && (
+                    {service.isGift && (
+                      <div className="absolute top-3 right-3 bg-[#1B6634] text-[#E5F5E9] text-[11px] font-bold px-2.5 py-0.5 rounded shadow border border-[#B6E2C1]">
+                        Quà Tặng Miễn Phí
+                      </div>
+                    )}
+                    {service.isAddon && !service.isGift && (
                       <div className="absolute top-3 right-3 bg-[#8C5E2D] text-white text-[11px] font-bold px-2 py-0.5 rounded">
                         Dịch Vụ Thêm
                       </div>
@@ -212,39 +239,46 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </div>
 
                   {/* Body */}
-                  <div className="p-5">
-                    <h4 className="font-serif-luxury text-xl font-bold text-[#381F0B] group-hover:text-[#8C5E2D] transition-colors mb-2">
+                  <div className="p-4 sm:p-5">
+                    <h4 className="font-serif-luxury text-lg sm:text-xl font-bold text-[#381F0B] group-hover:text-[#8C5E2D] transition-colors mb-1.5 sm:mb-2 leading-snug">
                       {service.name}
                     </h4>
 
-                    <p className="text-xs sm:text-sm text-[#5C3E24] line-clamp-2 leading-relaxed mb-4">
+                    <p className="text-xs sm:text-sm text-[#5C3E24] line-clamp-2 leading-relaxed mb-3 sm:mb-4">
                       {service.shortDesc}
                     </p>
 
                     {/* Dual Pricing Pill (60p and 90p) */}
-                    <div className="p-3 bg-[#F2E5D4] rounded-lg border border-[#DECBB4] mb-3">
-                      <div className="text-[11px] font-bold text-[#6D492A] uppercase mb-1.5">
+                    <div className="p-2.5 sm:p-3 bg-[#F2E5D4] rounded-xl border border-[#DECBB4] mb-3">
+                      <div className="text-[10px] sm:text-[11px] font-bold text-[#6D492A] uppercase mb-1 sm:mb-1.5">
                         Mức Giá Niêm Yết:
                       </div>
                       {service.price90 ? (
                         <div className="grid grid-cols-2 gap-2 text-xs">
-                          <div className="bg-[#FAF5ED] p-2 rounded border border-[#D5C0A4] text-center">
-                            <span className="block text-[11px] text-[#7E5735] font-medium">Gói 60 phút</span>
-                            <strong className="text-sm font-bold text-[#8C5E2D] tabular-nums">
+                          <div className="bg-[#FAF5ED] p-2 rounded-lg border border-[#D5C0A4] text-center">
+                            <span className="block text-[10px] sm:text-[11px] text-[#7E5735] font-medium">Gói 60 phút</span>
+                            <strong className="text-xs sm:text-sm font-bold text-[#8C5E2D] tabular-nums">
                               {formatPrice(service.price60 || service.price)}
                             </strong>
                           </div>
-                          <div className="bg-[#FAF5ED] p-2 rounded border border-[#D5C0A4] text-center">
-                            <span className="block text-[11px] text-[#7E5735] font-medium">Gói 90 phút</span>
-                            <strong className="text-sm font-bold text-[#5F3514] tabular-nums">
+                          <div className="bg-[#FAF5ED] p-2 rounded-lg border border-[#D5C0A4] text-center">
+                            <span className="block text-[10px] sm:text-[11px] text-[#7E5735] font-medium">Gói 90 phút</span>
+                            <strong className="text-xs sm:text-sm font-bold text-[#5F3514] tabular-nums">
                               {formatPrice(service.price90)}
                             </strong>
                           </div>
                         </div>
+                      ) : service.isGift ? (
+                        <div className="flex items-center justify-between text-xs py-0.5">
+                          <span className="text-[#1B6634] font-bold">Ưu đãi tri ân:</span>
+                          <span className="text-xs sm:text-sm font-bold text-[#1B6634] bg-[#E5F5E9] px-2 py-0.5 rounded border border-[#B6E2C1]">
+                            {service.giftText || 'Tặng Miễn Phí 100%'}
+                          </span>
+                        </div>
                       ) : (
-                        <div className="flex items-center justify-between text-xs">
+                        <div className="flex items-center justify-between text-xs py-0.5">
                           <span className="text-[#6D492A] font-medium">Trọn gói dịch vụ:</span>
-                          <span className="text-base font-bold text-[#8C5E2D] tabular-nums">
+                          <span className="text-sm sm:text-base font-bold text-[#8C5E2D] tabular-nums">
                             {formatPrice(service.price)}
                           </span>
                         </div>
@@ -254,21 +288,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 </div>
 
                 {/* Footer Buttons */}
-                <div className="p-5 pt-0">
+                <div className="p-4 pt-0 sm:p-5 sm:pt-0">
                   <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[#E8D4BE]">
                     <button
                       onClick={() => onSelectServiceDetail(service)}
-                      className="px-3 py-2.5 text-xs font-semibold text-[#4A2F17] bg-[#EFE3D2] border border-[#D5C0A4] rounded hover:bg-[#E5D2BC] transition-colors flex items-center justify-center gap-1 cursor-pointer whitespace-nowrap"
+                      className="px-2.5 sm:px-3 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A2F17] bg-[#EFE3D2] border border-[#D5C0A4] rounded-xl hover:bg-[#E5D2BC] transition-colors flex items-center justify-center gap-1 cursor-pointer whitespace-nowrap active:scale-95"
                     >
-                      <Info className="w-3.5 h-3.5 text-[#8C5E2D]" />
-                      <span>Xem Quy Trình</span>
+                      <Info className="w-3.5 h-3.5 text-[#8C5E2D] shrink-0" />
+                      <span>Xem Chi Tiết</span>
                     </button>
                     <a
                       href={`tel:${SPA_INFO.hotlineRaw}`}
-                      className="px-3 py-2.5 text-xs font-bold text-white bg-[#5F3514] rounded hover:bg-[#77441B] transition-colors flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
+                      className="px-2.5 sm:px-3 py-2.5 text-[11px] sm:text-xs font-bold text-white bg-[#5F3514] rounded-xl hover:bg-[#77441B] transition-colors flex items-center justify-center gap-1 cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
                     >
-                      <Phone className="w-3.5 h-3.5 text-[#F3D5A5]" />
-                      <span>Gọi Đặt Chỗ</span>
+                      <Phone className="w-3.5 h-3.5 text-[#F3D5A5] shrink-0" />
+                      <span>Gọi Giữ Chỗ</span>
                     </a>
                   </div>
                 </div>

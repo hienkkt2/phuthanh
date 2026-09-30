@@ -58,6 +58,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                   90p: {formatPrice(service.price90)}
                 </span>
               </div>
+            ) : service.isGift ? (
+              <span className="px-3 py-1 bg-[#E5F5E9] text-[#1B6634] text-xs sm:text-sm font-bold rounded-lg border border-[#B6E2C1]">
+                {service.giftText || 'Tặng Miễn Phí 100%'}
+              </span>
             ) : (
               <span className="text-base font-bold text-[#8C5E2D] tabular-nums">
                 {formatPrice(service.price)}

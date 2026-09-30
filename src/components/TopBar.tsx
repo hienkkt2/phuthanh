@@ -105,20 +105,21 @@ export const TopBar: React.FC<TopBarProps> = ({ onDirectCall }) => {
             ))}
           </nav>
 
-          {/* Primary Action: Direct Call Button */}
-          <div className="flex items-center gap-2.5">
+          {/* Primary Action: Direct Call Button (Hidden on mobile as requested) */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
             <a
               href={`tel:${SPA_INFO.hotlineRaw}`}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#5F3514] rounded-md hover:bg-[#77441B] transition-colors shadow-md cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#5F3514] rounded-lg sm:rounded-md hover:bg-[#77441B] transition-colors shadow-md cursor-pointer whitespace-nowrap active:scale-[0.98] border border-[#80481B]"
             >
-              <Phone className="w-4 h-4 text-[#F3D5A5] animate-bounce" />
-              <span>Gọi Ngay: {SPA_INFO.hotline}</span>
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F3D5A5] animate-bounce" />
+              <span className="hidden sm:inline">Gọi Ngay: </span>
+              <span>{SPA_INFO.hotline}</span>
             </a>
 
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#5F4532] hover:text-[#3A220F] hover:bg-[#EEDCC7] rounded-md transition-colors"
+              className="lg:hidden p-2 text-[#5F4532] hover:text-[#3A220F] hover:bg-[#EEDCC7] rounded-lg transition-colors cursor-pointer"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

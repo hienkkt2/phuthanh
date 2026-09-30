@@ -136,26 +136,32 @@ export const FacilityGallerySection: React.FC = () => {
 
           <div className="flex items-center gap-2.5 text-[#3D2510] text-xs sm:text-sm font-semibold">
             <MapPin className="w-5 h-5 text-[#8C5E2D] shrink-0" />
-            <span>Kiệt 186 Nguyễn Sinh Cung cách đường lớn 20m, có chỗ đỗ ô tô</span>
+            <span>Cơ sở số 2 kiệt 186 Nguyễn Sinh Cung, Vỹ Dạ, TP. Huế</span>
           </div>
         </div>
       </div>
 
       {/* Lightbox / Modal when clicking photo */}
       {selectedPhoto && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-          <div className="relative max-w-3xl w-full bg-[#FFFDF9] rounded-2xl overflow-hidden shadow-2xl border-2 border-[#D8C1A5]">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-sm animate-fade-in"
+          onClick={() => setSelectedPhoto(null)}
+        >
+          <div 
+            className="relative max-w-3xl w-full bg-[#FFFDF9] rounded-2xl overflow-hidden shadow-2xl border-2 border-[#D8C1A5] max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Close Button */}
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors cursor-pointer"
+              className="absolute top-3 right-3 z-10 p-2.5 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors cursor-pointer active:scale-95"
               aria-label="Đóng ảnh"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Modal Image */}
-            <div className="relative aspect-[4/3] bg-black">
+            <div className="relative aspect-[4/3] bg-black shrink-0">
               <img
                 src={selectedPhoto.image}
                 alt={selectedPhoto.title}
@@ -165,14 +171,14 @@ export const FacilityGallerySection: React.FC = () => {
             </div>
 
             {/* Modal Caption */}
-            <div className="p-5 bg-[#FAF3EA] border-t border-[#DECBB4]">
+            <div className="p-4 sm:p-5 bg-[#FAF3EA] border-t border-[#DECBB4] overflow-y-auto">
               <div className="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#E4D1BA] text-[#5F3514] mb-1.5 uppercase tracking-wide">
                 {selectedPhoto.category} — {selectedPhoto.tag}
               </div>
-              <h3 className="font-serif-luxury text-xl sm:text-2xl font-bold text-[#381F0B]">
+              <h3 className="font-serif-luxury text-lg sm:text-2xl font-bold text-[#381F0B]">
                 {selectedPhoto.title}
               </h3>
-              <p className="text-sm text-[#5D3F24] mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#5D3F24] mt-1.5 leading-relaxed">
                 {selectedPhoto.description}
               </p>
             </div>

@@ -7,6 +7,8 @@ export interface Service {
   price60?: number;
   price90?: number;
   isAddon?: boolean;
+  isGift?: boolean;
+  giftText?: string;
   originalPrice?: number;
   image: string;
   shortDesc: string;

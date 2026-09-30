@@ -32,21 +32,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
 
             {/* Address Banner Notice */}
-            <div className="p-3.5 rounded-xl bg-[#EFE3D1] border border-[#D5BF9F] text-[#45270E] flex items-start justify-between gap-2.5 shadow-sm">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#8C5E2D] shrink-0 mt-0.5" />
+            <div className="p-3 sm:p-3.5 rounded-xl bg-[#EFE3D1] border border-[#D5BF9F] text-[#45270E] flex items-center justify-between gap-2.5 shadow-sm">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#8C5E2D] shrink-0" />
                 <div className="text-xs sm:text-sm">
-                  <strong className="text-[#331B07]">Cơ sở duy nhất:</strong> {SPA_INFO.address}
-                  <div className="text-[12px] text-[#6E4723] mt-0.5 font-medium">
-                    (Kiệt 186 Nguyễn Sinh Cung cách đường lớn 20m, bãi đỗ xe máy & ô tô thông thoáng)
-                  </div>
+                  <span className="font-bold text-[#331B07]">Cơ sở duy nhất:</span>{' '}
+                  <span className="text-[#5F3514] font-medium">{SPA_INFO.address}</span>
                 </div>
               </div>
               <a
                 href={SPA_INFO.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 px-2.5 py-1 bg-[#8C5E2D] text-white hover:bg-[#5F3514] text-[11px] font-bold rounded transition-colors whitespace-nowrap"
+                className="shrink-0 px-2.5 py-1 bg-[#8C5E2D] text-white hover:bg-[#5F3514] text-[11px] font-bold rounded-lg transition-colors whitespace-nowrap"
               >
                 Chỉ Đường
               </a>

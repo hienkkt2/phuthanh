@@ -11,18 +11,21 @@ export const AboutSection: React.FC = () => {
       subtitle: 'Không gian ốp gỗ ấm cúng, 3 giường nệm êm ái, khăn ga thơm sạch thay mới 100%',
       image: '/images/phu_thanh_real_room_1790649556393.jpg',
       badge: 'Phòng Trị Liệu 3 Giường',
+      badgeMobile: 'Phòng 3 Giường',
     },
     {
       title: 'Khu Vực Ngâm Chân Thảo Mộc Thùng Gỗ',
       subtitle: 'Nước lá gừng quế ấm nóng khai thông huyệt đạo bàn chân, kết hợp thưởng trà gừng',
       image: '/images/phu_thanh_real_footsoak_1790649584369.jpg',
       badge: 'Ngâm Chân Thảo Mộc',
+      badgeMobile: 'Ngâm Chân',
     },
     {
       title: 'Cổng Vào & Biển Hiệu Số 2 Kiệt 186 Nguyễn Sinh Cung',
       subtitle: 'Cổng vào thông thoáng, biển hiệu sáng rõ, ô tô vào tận cổng cơ sở Vỹ Dạ',
       image: '/images/phu_thanh_real_gate_1790649534752.jpg',
       badge: 'Cổng Cơ Sở Vỹ Dạ',
+      badgeMobile: 'Cổng Tiệm',
     },
   ];
 
@@ -78,18 +81,19 @@ export const AboutSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
 
               {/* Photo Switcher Tabs Top Right */}
-              <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm p-1 rounded-lg border border-white/20 z-10">
+              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 flex items-center gap-1 sm:gap-1.5 bg-black/65 backdrop-blur-md p-1 rounded-xl border border-white/20 z-10 max-w-[calc(100%-20px)] overflow-x-auto no-scrollbar">
                 {realPhotos.map((photo, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActivePhotoIdx(idx)}
-                    className={`px-2.5 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer ${
+                    className={`px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-semibold rounded-lg transition-all cursor-pointer whitespace-nowrap active:scale-95 ${
                       activePhotoIdx === idx
                         ? 'bg-[#5F3514] text-[#F3D5A5] shadow border border-[#8C5E2D]'
                         : 'text-white/80 hover:text-white hover:bg-white/10'
                     }`}
                   >
-                    {photo.badge}
+                    <span className="sm:hidden">{photo.badgeMobile}</span>
+                    <span className="hidden sm:inline">{photo.badge}</span>
                   </button>
                 ))}
               </div>

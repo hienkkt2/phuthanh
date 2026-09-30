@@ -46,13 +46,13 @@ export const QuickBookingBar: React.FC = () => {
         </div>
 
         {/* Quiet footer strip */}
-        <div className="mt-4 pt-3 border-t border-[#E3D0BB] flex flex-wrap items-center justify-between text-xs text-[#6F4B2B] gap-2 font-medium">
+        <div className="mt-4 pt-3 border-t border-[#E3D0BB] flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-[#6F4B2B] gap-2 font-medium">
           <div className="flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-[#8C5E2D]" />
+            <MapPin className="w-3.5 h-3.5 text-[#8C5E2D] shrink-0" />
             <span>Địa chỉ: <strong>{SPA_INFO.address}</strong></span>
           </div>
           <div className="flex items-center gap-1.5 text-[#8C5E2D]">
-            <Clock className="w-3.5 h-3.5" />
+            <Clock className="w-3.5 h-3.5 shrink-0" />
             <span>Giờ mở cửa: {SPA_INFO.workingHours}</span>
           </div>
         </div>

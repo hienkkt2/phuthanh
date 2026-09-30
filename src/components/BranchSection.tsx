@@ -85,7 +85,7 @@ export const BranchSection: React.FC = () => {
                   href={googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto py-3 px-5 text-[#3D2510] bg-[#E9D9C3] border border-[#CBB092] rounded-lg hover:bg-[#DFCDB4] transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm font-bold cursor-pointer"
+                  className="w-full sm:w-auto py-3 px-5 text-[#3D2510] bg-[#E9D9C3] border border-[#CBB092] rounded-xl hover:bg-[#DFCDB4] transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm font-bold cursor-pointer"
                 >
                   <Navigation className="w-4 h-4 text-[#8C5E2D]" />
                   <span>Xem Chỉ Đường Google Maps</span>
@@ -113,18 +113,14 @@ export const BranchSection: React.FC = () => {
                     <Navigation className="w-3.5 h-3.5 text-[#F3D5A5]" />
                     <span>Mở vị trí trên Google Maps</span>
                   </div>
-                  <div className="font-serif-luxury text-lg font-bold">
+                  <div className="font-serif-luxury text-base sm:text-lg font-bold">
                     Cổng vào số 2 kiệt 186 Nguyễn Sinh Cung
                   </div>
                   <div className="text-xs text-[#E8D6C0] mt-0.5">
-                    Biển hiệu Phú Thành sáng rõ, ô tô vào tận cổng cơ sở
+                    Phường Vỹ Dạ, TP. Huế (Gần Cồn Hến)
                   </div>
                 </div>
               </a>
-
-              <div className="mt-3 p-3 bg-[#EFE3D2] rounded-xl border border-[#D5C0A4] text-xs text-[#6F4B2B] text-center">
-                Quý khách đến kiệt 186 Nguyễn Sinh Cung rẽ vào khoảng 20m là thấy ngay cơ sở Phú Thành bên tay phải.
-              </div>
             </div>
           </div>
         </div>

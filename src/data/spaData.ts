@@ -53,18 +53,19 @@ export const SERVICES_DATA: Service[] = [
     price60: 170000,
     price90: 240000,
     image: '/images/spa_interior_ambiance_1790586975263.jpg',
-    shortDesc: 'Kết hợp xoa bóp bấm huyệt và giác hơi trục xuất hàn ẩm, phong hàn ứ trệ, giải cảm nhẹ người.',
-    description: 'Sự kết hợp hoàn hảo giữa kỹ thuật xoa bóp bấm huyệt trị liệu và phương pháp giác hơi truyền thống. Lực hút giác hơi nhẹ nhàng dọc các đường kinh bàng quang giúp trục xuất phong hàn, giải cảm, hút sạch độc tố hàn ẩm tích tụ lâu ngày dưới da, hết hẳn ê ẩm sống lưng.',
+    shortDesc: 'Kết hợp xoa bóp bấm huyệt và giác hơi bằng ống tre truyền thống trục xuất hàn ẩm, phong hàn ứ trệ, giải cảm nhẹ người.',
+    description: 'Sự kết hợp hoàn hảo giữa kỹ thuật xoa bóp bấm huyệt trị liệu và phương pháp giác hơi bằng ống tre thiên nhiên cổ truyền. Lực hút từ ống tre đun nước thảo mộc êm dịu bám dọc các đường kinh bàng quang giúp trục xuất phong hàn, giải cảm, hút sạch độc tố hàn ẩm tích tụ lâu ngày dưới da, hết hẳn ê ẩm sống lưng.',
     steps: [
       'Khởi động ấn huyệt mở thông các đường kinh lạc toàn thân',
       'Thoa tinh dầu thảo mộc làm trơn và làm ấm vùng lưng',
       'Massage miết cơ sâu giải tỏa đau mỏi cột sống thắt lưng',
-      'Giác hơi an toàn dọc hai bên cột sống lưng',
+      'Giác hơi bằng ống tre thiên nhiên an toàn dọc hai bên cột sống lưng',
       'Lau sạch và thoa dầu tràm ấm giữ nhiệt sau giác hơi',
       'Bấm huyệt đầu cổ gáy thư thái tinh thần',
       'Thưởng thức trà thảo mộc ấm nóng'
     ],
     benefits: [
+      'Giác hơi bằng ống tre thiên nhiên êm dịu, không gây bỏng rát hay đau da',
       'Trục sạch khí lạnh, giải cảm hàn, cảm cúm, ớn lạnh sống lưng',
       'Giảm đau nhức cơ lưng tức thì sau những chuyến đi mưa gió',
       'Cơ thể thông thoáng nhẹ nhõm, da dẻ hồng hào trở lại'
@@ -107,12 +108,12 @@ export const SERVICES_DATA: Service[] = [
     price60: 200000,
     price90: 270000,
     image: '/images/phu_thanh_hero_1790648702096.jpg',
-    shortDesc: 'Gói chăm sóc toàn diện nhất: Đủ bộ Bấm Huyệt + Giác Hơi + Đá Nóng phục hồi tối đa thể lực.',
-    description: 'Liệu trình cao cấp nhất được yêu thích tại Phú Thành. Hội tụ đủ 3 phương pháp trị liệu tinh hoa Đông y: Xoa bóp bấm huyệt khai thông kinh lạc, Giác hơi giải cảm trục độc hàn ẩm, và Đá nóng bazan truyền nhiệt ấm sâu. Xua tan triệt để mọi mệt mỏi đau nhức toàn thân.',
+    shortDesc: 'Gói chăm sóc toàn diện nhất: Đủ bộ Bấm Huyệt + Giác Hơi Ống Tre + Đá Nóng phục hồi tối đa thể lực.',
+    description: 'Liệu trình cao cấp nhất được yêu thích tại Phú Thành. Hội tụ đủ 3 phương pháp trị liệu tinh hoa Đông y: Xoa bóp bấm huyệt khai thông kinh lạc, Giác hơi bằng ống tre giải cảm trục độc hàn ẩm, và Đá nóng bazan truyền nhiệt ấm sâu. Xua tan triệt để mọi mệt mỏi đau nhức toàn thân.',
     steps: [
       'Ngâm chân thảo dược nước ấm muối gừng kích hoạt huyệt Dũng Tuyền',
       'Xoa bóp bấm huyệt chuyên sâu toàn bộ vùng lưng, cổ vai gáy và chân tay',
-      'Giác hơi truyền thống dọc hai bên dải kinh bàng quang',
+      'Giác hơi bằng ống tre thiên nhiên dọc hai bên dải kinh bàng quang',
       'Trượt đá nóng bazan và ủ ấm huyệt Thận Du, Mệnh Môn',
       'Massage bấm huyệt đầu và thái dương giảm đau đầu mất ngủ',
       'Uống trà thảo mộc gừng quế ấm nóng'
@@ -152,32 +153,34 @@ export const SERVICES_DATA: Service[] = [
     isHot: true,
   },
   {
-    id: 'xong-ngai-cuu',
-    name: 'Xông Ngải Cứu',
+    id: 'chuom-ngai-cuu',
+    name: 'Chườm Ngải Cứu (Lưng & Mắt)',
     category: 'whitening',
-    durationMinutes: 30,
-    price: 40000,
-    price60: 40000,
-    price90: 40000,
+    durationMinutes: 60,
+    price: 0,
+    price60: 0,
+    price90: 0,
     isAddon: true,
+    isGift: true,
+    giftText: 'Tặng Miễn Phí',
     image: '/images/spa_interior_ambiance_1790586975263.jpg',
-    shortDesc: 'Dịch vụ thêm: Xông ấm ngải cứu tươi lên các huyệt vị lạnh, trục hàn khí, giảm đau nhức xương khớp.',
-    description: 'Phương pháp xông hơ ngải cứu thuần túy Đông y. Hơi ấm thuần dương của ngải cứu thấm sâu vào kinh lạc, tán hàn trừ thấp, ôn thông khí huyết, đặc biệt hiệu quả cho người bị đau nhức xương khớp, lạnh bụng, đau bụng kinh hoặc cơ thể bị nhiễm lạnh.',
+    shortDesc: 'Tặng miễn phí gối ngải cứu chườm lưng và chườm mắt trong liệu trình xoa bóp bấm huyệt.',
+    description: 'Đặc quyền chăm sóc tận tâm tại Phú Thành: Quý khách được TẶNG MIỄN PHÍ gối thảo dược ngải cứu ấm chườm vùng thắt lưng và chườm thư giãn vùng mắt trong suốt liệu trình xoa bóp bấm huyệt. Tinh chất ngải cứu sao nóng truyền nhiệt sâu giúp ôn thông kinh lạc, dứt cơn đau mỏi lưng eo và xua tan căng thẳng mỏi mắt.',
     steps: [
-      'Chuẩn bị nồi thuốc ngải cứu tươi sao ấm hoặc điếu ngải chuyên dụng',
-      'Thăm khám các vùng huyệt đạo bị hàn lạnh, co cứng',
-      'Xông hơ ngải cứu giữ nhiệt đều đặn, không gây bỏng rát',
-      'Lau khô mồ hôi và uống 1 cốc nước gừng ấm'
+      'Ủ ấm gối thảo dược ngải cứu tự nhiên đạt nhiệt độ êm dịu chuẩn y học cổ truyền',
+      'Đặt gối ngải cứu ấm chườm vùng thắt lưng và cột sống trong suốt liệu trình',
+      'Chườm gối thảo mộc ấm lên vùng mắt giúp thư giãn mắt, giảm nhức mỏi và dễ ngủ',
+      'Thưởng thức tách trà gừng đường phèn ấm nóng sau buổi trị liệu'
     ],
     benefits: [
-      'Trục hàn ẩm tích tụ sâu trong kinh lạc và xương khớp',
-      'Làm ấm cơ thể, tăng cường sinh khí và giảm nhức mỏi',
-      'Giá bình dân chỉ 40.000đ, dễ dàng kết hợp cùng mọi gói xoa bóp'
+      'TẶNG MIỄN PHÍ 100% trong tất cả liệu trình xoa bóp bấm huyệt tại Phú Thành',
+      'Hơi ấm ngải cứu ôn thông kinh lạc, trục hàn khí, giảm đau nhức lưng eo và cột sống',
+      'Thư giãn cơ mắt, giảm mỏi mắt cho người làm việc máy tính, điện thoại nhiều'
     ],
   },
   {
     id: 'giac-hoi',
-    name: 'Giác Hơi',
+    name: 'Giác Hơi (Ống Tre)',
     category: 'whitening',
     durationMinutes: 30,
     price: 40000,
@@ -185,17 +188,18 @@ export const SERVICES_DATA: Service[] = [
     price90: 40000,
     isAddon: true,
     image: '/images/spa_service_headspa_1790586950795.jpg',
-    shortDesc: 'Dịch vụ thêm: Giác hơi truyền thống hút độc tố, đả thông ứ trệ, giải cảm gió nhanh chóng.',
-    description: 'Giác hơi khô truyền thống được thực hiện khéo léo bởi kỹ thuật viên khiếm thị. Áp suất âm vừa vặn giúp hút sạch các huyết ứ và khí trệ độc hại dưới da, kích thích lưu thông máu và giải tỏa cơn nhức mỏi ê ẩm lưng.',
+    shortDesc: 'Dịch vụ thêm: Giác hơi bằng ống tre truyền thống hút độc tố, đả thông ứ trệ, giải cảm gió nhanh chóng.',
+    description: 'Phương pháp giác hơi bằng ống tre thiên nhiên được kỹ thuật viên khiếm thị Phú Thành thực hiện tỉ mỉ và an toàn tuyệt đối. Ống tre được luộc qua nước thảo mộc tạo lực hút chân không tự nhiên, êm dịu, không gây rát da, hút sạch huyết ứ, phong hàn và giải tỏa cơn nhức mỏi ê ẩm lưng nhanh chóng.',
     steps: [
       'Làm ấm và thoa dầu tràm thảo dược lên toàn bộ vùng lưng',
-      'Đặt cốc giác hơi nhẹ nhàng dọc các huyệt đạo kinh Bàng quang',
-      'Giữ cốc giác hơi trong thời gian tiêu chuẩn',
-      'Tháo cốc nhẹ nhàng và thoa dầu tràm giữ ấm'
+      'Đặt ống tre giác hơi nhẹ nhàng dọc các huyệt đạo kinh Bàng quang',
+      'Giữ ống tre trong thời gian tiêu chuẩn để hút sạch phong hàn độc tố',
+      'Tháo ống tre nhẹ nhàng và thoa dầu tràm giữ ấm'
     ],
     benefits: [
-      'Giải cảm phong hàn, hết ớn lạnh dọc sống lưng',
-      'Hút độc tố và giải phóng co cơ lưng nhanh chóng',
+      'Giác hơi bằng ống tre thiên nhiên an toàn, êm dịu, không đau rát da',
+      'Giải cảm phong hàn, hết ớn lạnh dọc sống lưng nhanh chóng',
+      'Hút độc tố và giải phóng co cơ lưng hiệu quả',
       'Giá chỉ 40.000đ làm thêm tiện lợi'
     ],
   }
@@ -211,12 +215,12 @@ export const OFFICIAL_MENU_BOARD = {
       badge: 'Thư Giãn Tiêu Chuẩn',
       items: [
         { name: 'Xoa Bóp - Bấm Huyệt', price: 140000, serviceId: 'xoa-bop-bam-huyet' },
-        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi', price: 170000, serviceId: 'xoa-bop-bam-huyet-giac-hoi' },
+        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre)', price: 170000, serviceId: 'xoa-bop-bam-huyet-giac-hoi' },
         { name: 'Xoa Bóp - Bấm Huyệt - Đá Nóng', price: 170000, serviceId: 'xoa-bop-bam-huyet-da-nong' },
-        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi - Đá Nóng', price: 200000, serviceId: 'xoa-bop-bam-huyet-giac-hoi-da-nong', isHot: true },
+        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre) - Đá Nóng', price: 200000, serviceId: 'xoa-bop-bam-huyet-giac-hoi-da-nong', isHot: true },
         { name: 'Massage Chân - Ngâm Chân Thảo Dược', price: 170000, serviceId: 'massage-chan-ngam-chan-thao-duoc' },
-        { name: 'Xông Ngải Cứu', price: 40000, isAddon: true, serviceId: 'xong-ngai-cuu' },
-        { name: 'Giác Hơi', price: 40000, isAddon: true, serviceId: 'giac-hoi' },
+        { name: 'Chườm Ngải Cứu (Lưng & Mắt)', price: 0, isGift: true, giftText: 'Tặng Miễn Phí', serviceId: 'chuom-ngai-cuu' },
+        { name: 'Giác Hơi (Ống Tre)', price: 40000, isAddon: true, serviceId: 'giac-hoi' },
       ]
     },
     {
@@ -225,12 +229,12 @@ export const OFFICIAL_MENU_BOARD = {
       badge: 'Chuyên Sâu Phục Hồi (VIP)',
       items: [
         { name: 'Xoa Bóp - Bấm Huyệt', price: 210000, serviceId: 'xoa-bop-bam-huyet' },
-        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi', price: 240000, serviceId: 'xoa-bop-bam-huyet-giac-hoi' },
+        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre)', price: 240000, serviceId: 'xoa-bop-bam-huyet-giac-hoi' },
         { name: 'Xoa Bóp - Bấm Huyệt - Đá Nóng', price: 240000, serviceId: 'xoa-bop-bam-huyet-da-nong' },
-        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi - Đá Nóng', price: 270000, serviceId: 'xoa-bop-bam-huyet-giac-hoi-da-nong', isHot: true },
+        { name: 'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre) - Đá Nóng', price: 270000, serviceId: 'xoa-bop-bam-huyet-giac-hoi-da-nong', isHot: true },
         { name: 'Massage Chân - Ngâm Chân Thảo Dược', price: 240000, serviceId: 'massage-chan-ngam-chan-thao-duoc' },
-        { name: 'Xông Ngải Cứu', price: 40000, isAddon: true, serviceId: 'xong-ngai-cuu' },
-        { name: 'Giác Hơi', price: 40000, isAddon: true, serviceId: 'giac-hoi' },
+        { name: 'Chườm Ngải Cứu (Lưng & Mắt)', price: 0, isGift: true, giftText: 'Tặng Miễn Phí', serviceId: 'chuom-ngai-cuu' },
+        { name: 'Giác Hơi (Ống Tre)', price: 40000, isAddon: true, serviceId: 'giac-hoi' },
       ]
     }
   ]
@@ -246,10 +250,11 @@ export const PACKAGES_DATA: PackageCombo[] = [
     originalPrice: 180000,
     features: [
       'Xoa Bóp - Bấm Huyệt: 140.000đ',
-      'Xoa Bóp - Bấm Huyệt - Giác Hơi: 170.000đ',
+      'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre): 170.000đ',
       'Xoa Bóp - Bấm Huyệt - Đá Nóng: 170.000đ',
-      'Xoa Bóp - Bấm Huyệt - Giác Hơi - Đá Nóng: 200.000đ',
+      'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre) - Đá Nóng: 200.000đ',
       'Massage Chân - Ngâm Chân Thảo Dược: 170.000đ',
+      'TẶNG MIỄN PHÍ: Gối ngải cứu chườm lưng & chườm mắt',
       'Miễn phí nước ngâm chân gừng muối ấm & trà gừng',
       'Phòng máy lạnh sạch sẽ, khăn ga thay mới 100%'
     ],
@@ -264,10 +269,11 @@ export const PACKAGES_DATA: PackageCombo[] = [
     originalPrice: 280000,
     features: [
       'Xoa Bóp - Bấm Huyệt chuyên sâu: 210.000đ',
-      'Xoa Bóp - Bấm Huyệt - Giác Hơi: 240.000đ',
+      'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre): 240.000đ',
       'Xoa Bóp - Bấm Huyệt - Đá Nóng: 240.000đ',
-      'Xoa Bóp - Bấm Huyệt - Giác Hơi - Đá Nóng: 270.000đ',
+      'Xoa Bóp - Bấm Huyệt - Giác Hơi (Ống Tre) - Đá Nóng: 270.000đ',
       'Massage Chân - Ngâm Chân Thảo Dược: 240.000đ',
+      'TẶNG MIỄN PHÍ: Gối ngải cứu chườm lưng & chườm mắt',
       '90 phút chăm sóc toàn diện từ đầu tới ngón chân',
       'Tặng trà thảo mộc & phục vụ tận tâm chu đáo'
     ],
@@ -281,8 +287,8 @@ export const PACKAGES_DATA: PackageCombo[] = [
     price: 40000,
     originalPrice: 60000,
     features: [
-      'Xông Ngải Cứu ấm kinh mạch: 40.000đ',
-      'Giác Hơi trục độc tố, hút phong hàn: 40.000đ',
+      'TẶNG MIỄN PHÍ: Chườm gối ngải cứu ấm lưng & mắt',
+      'Giác Hơi bằng ống tre trục độc tố, hút phong hàn: 40.000đ',
       'Massage Chân - Ngâm Chân Thảo Dược: 170.000đ (60p) | 240.000đ (90p)',
       'Thùng gỗ ngâm chân nước gừng ấm nóng gia truyền',
       'Dễ dàng kết hợp cùng mọi gói xoa bóp toàn thân'
